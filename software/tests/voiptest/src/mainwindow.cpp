@@ -486,7 +486,7 @@ void MainWindow::presenceChanged(const QString &bareJid, const QString &resource
     QString jid = bareJid + "/" + resource;
 
     // Only show connected friends.
-    if (presence.status().type() == QXmppPresence::Status::Online)
+/*    if (presence.status().type() == QXmppPresence::Status::Online)
     {
         if (!this->m_roster.contains(jid))
             this->m_roster << jid;
@@ -495,7 +495,7 @@ void MainWindow::presenceChanged(const QString &bareJid, const QString &resource
     {
         if (this->m_roster.contains(jid))
             this->m_roster.removeAll(jid);
-    }
+    }*/
 
     this->lswRoster->clear();
     this->lswRoster->addItems(this->m_roster);
