@@ -76,7 +76,7 @@ function main()
         print( "Failed to get connected" )
     end
     print( "Terminating host" )
-    process( "sudo halt -p" )
+    --process( "sudo halt -p" )
 end
 
 function sleep( msec )
@@ -172,7 +172,7 @@ function timeoutReset()
     if ( res ) then
         local t = {}
         t[1] = CMD_SHUTDOWN_RESET
-        t[2] = 0 
+        t[2] = 0
         t[3] = 0
         res = mcu:write( I2C_ADDR, t )
         if ( not res ) then
@@ -363,7 +363,7 @@ function curr()
 	if ( res[1] ~= CMD_CURR ) then
             status_table.curr = "not ready"
 	else
-            local i = res[2] + res[3] * 256 
+            local i = res[2] + res[3] * 256
             -- V = I(A) * 0.3(Ohm) * 11(gain)
             -- A(adc) = 4095 / 3.3 * I + 2047(shift to range center with another OpAmp)
             i = 0.2442 * (i - 2047) -- mA
@@ -415,7 +415,7 @@ function oscStatus()
         if ( not res ) then
             return false
         end
-	local cnt = res[2] + res[3] * 256 
+	local cnt = res[2] + res[3] * 256
         status_table.oscCnt = cnt
         mcu:close()
         return cnt
@@ -439,7 +439,7 @@ function oscValue( index )
         if ( not res ) then
             return false
         end
-	local val = res[2] + res[3] * 256 
+	local val = res[2] + res[3] * 256
         mcu:close()
         return val
     end
@@ -455,11 +455,3 @@ end
 
 print( "host.lua loaded!!!" )
 main()
-
-
-
-
-
-
-
-

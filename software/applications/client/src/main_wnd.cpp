@@ -62,8 +62,8 @@ MainWnd::MainWnd( QWidget * parent )
     QString selfJid  = ini.value( "selfJid",    "client@xmpp" ).toString();
     QString destJid  = ini.value( "destJid",    "host@xmpp" ).toString();
     QString password = ini.value( "password",   "12345" ).toString();
-    QString host     = ini.value( "host",       QString() ).toString();
-    int     port     = ini.value( "port",       -1 ).toInt();
+    QString host     = ini.value( "host",       "localhost" ).toString();
+    int     port     = ini.value( "port",       5222 ).toInt();
     bool    tls      = ini.value( "tls",        true ).toBool();
     bool updateDest  = ini.value( "updateDest", true ).toBool();
 
@@ -72,6 +72,8 @@ MainWnd::MainWnd( QWidget * parent )
     m_peer->connect( selfJid, password, host, port, tls );
     m_jidDest = destJid;
 
+    // This is for accessing ssh daemon. It is necessary to get
+    // control over remore computer.
     m_pipe = new QXmppMsgPipe( m_peer, 1 );
     m_pipe->setOutPipe( m_jidDest, 1234, 22, "localhost" );
 

@@ -95,22 +95,26 @@ void QXmppPeer::qxmppLog( QXmppLogger::MessageType type, const QString & text )
 {
     QString stri = QString( "Log(%1): %2" ).arg( type ).arg( text );
     emit log( stri );
+    qDebug() << stri;
 }
 
 void QXmppPeer::qxmppConnected()
 {
     emit log( "connected" );
+    qDebug() << "connected";
 }
 
 void QXmppPeer::qxmppDisconnected()
 {
     emit log( "disconnected" );
+    qDebug() << "disconnected";
 }
 
 void QXmppPeer::qxmppError( QXmppClient::Error e )
 {
     QString stri = QString( "Error: %1" ).arg( e );
     emit log( stri );
+    qDebug() << "stri";
 }
 
 void QXmppPeer::qxmppMessageReceived( const QXmppMessage & message )
@@ -119,6 +123,7 @@ void QXmppPeer::qxmppMessageReceived( const QXmppMessage & message )
         pd->targetJid = message.from();
     QString stri = message.body();
     emit textmsg( stri );
+    qDebug() << stri;
 }
 
 
