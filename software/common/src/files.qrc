@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>files/torrc.template</file>
+    </qresource>
+</RCC>
