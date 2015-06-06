@@ -1,10 +1,28 @@
 
 #include "process_tor.h"
 
+class CInitResource
+{
+public:
+    CInitResource()
+    {
+        Q_INIT_RESOURCE( files );
+    }
+
+    ~CInitResource()
+    {
+        Q_CLEANUP_RESOURCE( files );
+    }
+};
+
+
 class ProcessTor::PD
 {
 public:
-    PD() {}
+    PD()
+    {
+    	static CInitResource a;
+    }
     ~PD() {}
     QProcess * ps;
     static const QString TOR_EXEC;
@@ -31,45 +49,72 @@ ProcessTor::ProcessTor( QObject * parent, bool host )
 bool ProcessTor::createConfig()
 {
     QDir dir;
-    if ( !dir.mkdir( "./tor-cfg" ) )
+    if ( ( !dir.mkdir( "./tor-cfg" ) ) && ( !dir.exists( "./tor-cfg" ) ) )
         return false;
-    QFile f( ":/cached-certs" );
+    QFile f( ":/files/cached-certs" );
+    if ( !f.open( QIODevice::ReadOnly ) )
+    	return false;
     if ( !f.copy( "./tor-cfg/cached-certs" ) )
         return false;
+    f.close();
 
-    f.setFileName( ":/cached-micro~sc-consensus" );
+    f.setFileName( ":/files/cached-micro~sc-consensus" );
+    if ( !f.open( QIODevice::ReadOnly ) )
+    	return false;
     if ( !f.copy( "./tor-cfg/cached-micro~sc-consensus" ) )
         return false;
+    f.close();
 
-    f.setFileName( ":/cached-microdescs" );
+    f.setFileName( ":/files/cached-microdescs" );
+    if ( !f.open( QIODevice::ReadOnly ) )
+    	return false;
     if ( !f.copy( "./tor-cfg/cached-microdescs" ) )
         return false;
+    f.close();
 
-    f.setFileName( ":/cached-microdescs.new" );
+    f.setFileName( ":/files/cached-microdescs.new" );
+    if ( !f.open( QIODevice::ReadOnly ) )
+    	return false;
     if ( !f.copy( "./tor-cfg/cached-microdescs.new" ) )
         return false;
+    f.close();
 
-    f.setFileName( ":/control_auth_cookie" );
+    f.setFileName( ":/files/control_auth_cookie" );
+    if ( !f.open( QIODevice::ReadOnly ) )
+    	return false;
     if ( !f.copy( "./tor-cfg/control_auth_cookie" ) )
         return false;
+    f.close();
 
-    f.setFileName( ":/geoip" );
+    f.setFileName( ":/files/geoip" );
+    if ( !f.open( QIODevice::ReadOnly ) )
+    	return false;
     if ( !f.copy( "./tor-cfg/geoip" ) )
         return false;
+    f.close();
 
-    f.setFileName( ":/geoip6" );
+    f.setFileName( ":/files/geoip6" );
+    if ( !f.open( QIODevice::ReadOnly ) )
+    	return false;
     if ( !f.copy( "./tor-cfg/geoip6" ) )
         return false;
+    f.close();
 
-    f.setFileName( ":/lock" );
+    f.setFileName( ":/files/lock" );
+    if ( !f.open( QIODevice::ReadOnly ) )
+    	return false;
     if ( !f.copy( "./tor-cfg/lock" ) )
         return false;
+    f.close();
 
-    f.setFileName( ":/state" );
+    f.setFileName( ":/files/state" );
+    if ( !f.open( QIODevice::ReadOnly ) )
+    	return false;
     if ( !f.copy( "./tor-cfg/state" ) )
         return false;
+    f.close();
 
-    f.setFileName( ":/torrc.template" );
+    f.setFileName( ":/files/torrc.template" );
     if ( !f.open( QIODevice::ReadOnly ) )
         return false;
     QByteArray torrc = f.readAll();
