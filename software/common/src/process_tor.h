@@ -10,7 +10,11 @@ class ProcessTor: public QObject
 public:
 	ProcessTor( QObject * parent = 0, bool host = true );
 	~ProcessTor();
+
+    QString hiddenAddr() const;
 private:
+    bool createConfig();
+
 	class PD;
 	PD * pd;
 };

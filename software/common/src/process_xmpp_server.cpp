@@ -1,4 +1,6 @@
 
+#include "process_xmpp_server.h"
+
 class ProcessXmppServer::PD
 {
 public:
@@ -7,7 +9,7 @@ public:
 	static const QString SERV_ARGS;
 };
 
-const QString ProcessXmppServer::PD::SERV_FILE = "./bin/xmpp_server";
+const QString ProcessXmppServer::PD::SERV_FILE = "./xmpp_server";
 const QString ProcessXmppServer::PD::SERV_ARGS = "";
 
 ProcessXmppServer::ProcessXmppServer( QObject * parent )
