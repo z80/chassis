@@ -42,94 +42,84 @@ ProcessTor::ProcessTor( QObject * parent, bool host )
     if ( !QFile::exists( PD::TOR_CONFIG ) )
         createConfig();
 
-    pd->ps->start( PD::TOR_EXEC, QStringList() << PD::TOR_ARGS );
+    QString args = QString( "%1%2" ).arg( PD::TOR_ARGS ).arg( host ? ".serv" : ".client" );
+    qDebug() << args;
+    pd->ps->start( PD::TOR_EXEC, QStringList() << args );
 
+    bool res = pd->ps->waitForStarted();
+
+    qDebug() << "run res: " << (res ? "true" : "false");
+
+    res = (pd->ps->state() == QProcess::Running);
+
+    qDebug() << "running: " << (res ? "true" : "false");
 }
 
 bool ProcessTor::createConfig()
 {
     QDir dir;
-    if ( ( !dir.mkdir( "./tor-cfg" ) ) && ( !dir.exists( "./tor-cfg" ) ) )
+    if ( ( !dir.exists( "./tor-cfg" ) ) && ( !dir.mkdir( "./tor-cfg" ) ) )
         return false;
-    QFile f( ":/files/cached-certs" );
-    if ( !f.open( QIODevice::ReadOnly ) )
-    	return false;
-    if ( !f.copy( "./tor-cfg/cached-certs" ) )
-        return false;
-    f.close();
 
-    f.setFileName( ":/files/cached-micro~sc-consensus" );
-    if ( !f.open( QIODevice::ReadOnly ) )
-    	return false;
-    if ( !f.copy( "./tor-cfg/cached-micro~sc-consensus" ) )
-        return false;
-    f.close();
+    QStringList l;
+    l << "cached-certs";
+    l << "cached-microdesc-consensus";
+    l << "cached-microdescs";
+    l << "cached-microdescs.new";
+    l << "control_auth_cookie";
+    l << "geoip";
+    l << "geoip6";
+    l << "state";
 
-    f.setFileName( ":/files/cached-microdescs" );
-    if ( !f.open( QIODevice::ReadOnly ) )
-    	return false;
-    if ( !f.copy( "./tor-cfg/cached-microdescs" ) )
-        return false;
-    f.close();
+    foreach( QString stri, l )
+    {
+        QString src  = QString( ":/files/%1" ).arg( stri );
+        QString dest = QString( "./tor-cfg/%1" ).arg( stri );
+        QFile f( src );
+        f.copy( dest );
+    }
 
-    f.setFileName( ":/files/cached-microdescs.new" );
-    if ( !f.open( QIODevice::ReadOnly ) )
-    	return false;
-    if ( !f.copy( "./tor-cfg/cached-microdescs.new" ) )
+    QFile fin( ":/files/torrc.template" );
+    fin.copy( "./tor-cfg/torrc.client" );
+    if ( !fin.open( QIODevice::ReadOnly ) )
         return false;
-    f.close();
+    QTextStream in( &fin );
 
-    f.setFileName( ":/files/control_auth_cookie" );
-    if ( !f.open( QIODevice::ReadOnly ) )
-    	return false;
-    if ( !f.copy( "./tor-cfg/control_auth_cookie" ) )
+    QFile fout( "./tor-cfg/torrc.serv" );
+    if ( !fout.open( QIODevice::WriteOnly ) )
         return false;
-    f.close();
+    QTextStream out( &fout );
 
-    f.setFileName( ":/files/geoip" );
-    if ( !f.open( QIODevice::ReadOnly ) )
-    	return false;
-    if ( !f.copy( "./tor-cfg/geoip" ) )
-        return false;
-    f.close();
+    while ( !in.atEnd() )
+    {
+        QString torrc_stri = in.readLine();
 
-    f.setFileName( ":/files/geoip6" );
-    if ( !f.open( QIODevice::ReadOnly ) )
-    	return false;
-    if ( !f.copy( "./tor-cfg/geoip6" ) )
-        return false;
-    f.close();
+        QRegExp rx( "{port}" );
+        rx.setPatternSyntax( QRegExp::FixedString );
+        if ( rx.indexIn( torrc_stri ) >= 0 )
+        {
+            torrc_stri = torrc_stri.replace( rx, "7100" );
+            torrc_stri = torrc_stri.replace( "#", "" );
+        }
 
-    f.setFileName( ":/files/lock" );
-    if ( !f.open( QIODevice::ReadOnly ) )
-    	return false;
-    if ( !f.copy( "./tor-cfg/lock" ) )
-        return false;
-    f.close();
+        rx.setPattern( "{host}" );
+        if ( rx.indexIn( torrc_stri ) >= 0 )
+        {
+            torrc_stri = torrc_stri.replace( rx, "localhost" );
+            torrc_stri = torrc_stri.replace( "#", "" );
+        }
 
-    f.setFileName( ":/files/state" );
-    if ( !f.open( QIODevice::ReadOnly ) )
-    	return false;
-    if ( !f.copy( "./tor-cfg/state" ) )
-        return false;
-    f.close();
-
-    f.setFileName( ":/files/torrc.template" );
-    if ( !f.open( QIODevice::ReadOnly ) )
-        return false;
-    QByteArray torrc = f.readAll();
-    QString torrc_stri = QString::fromAscii( torrc );
-    QRegExp rx( "{port}" );
-    torrc_stri = torrc_stri.replace( rx, "7100" );
-    rx.setPattern( "{host}" );
-    torrc_stri = torrc_stri.replace( rx, "localhost" );
-    rx.setPattern( "{servicedir}" );
-    torrc_stri = torrc_stri.replace( rx, "./tor-service" );
-
-    f.setFileName( "./tor-cfg/torrc" );
-    if ( !f.open( QIODevice::WriteOnly ) )
-        f.write( torrc_stri.toAscii() );
-    f.close();
+        rx.setPattern( "{servicedir}" );
+        if ( rx.indexIn( torrc_stri ) >= 0 )
+        {
+            torrc_stri = torrc_stri.replace( rx, "./tor-service" );
+            torrc_stri = torrc_stri.replace( "#", "" );
+        }
+        out << torrc_stri << "\r\n";
+    }
+    out.flush();
+    fout.close();
+    fin.close();
 
     return true;
 }
