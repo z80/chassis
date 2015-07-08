@@ -7,7 +7,6 @@
         <file>files/control_auth_cookie</file>
         <file>files/geoip</file>
         <file>files/geoip6</file>
-        <file>files/lock</file>
         <file>files/state</file>
         <file>files/torrc.template</file>
     </qresource>

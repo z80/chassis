@@ -1,4 +1,5 @@
 
+
 #ifndef __PROCESS_TOR_H_
 #define __PROCESS_TOR_H_
 
@@ -14,7 +15,10 @@ public:
     QString hiddenAddr() const;
 private:
     bool createConfig();
+private slots:
+    void slotReadyRead();
 
+private:
 	class PD;
 	PD * pd;
 };

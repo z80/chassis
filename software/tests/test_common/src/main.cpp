@@ -7,8 +7,8 @@ int main( int argc, char * argv[] )
 {
     QApplication app( argc, argv );
 
-    ProcessXmppServer a( 0 );
-    ProcessTor t( 0, true );
+    //ProcessXmppServer a( 0 );
+    ProcessTor * t = new ProcessTor( 0, true );
 
     int res = app.exec();
     return res;

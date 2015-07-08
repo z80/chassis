@@ -26,25 +26,30 @@ public:
     ~PD() {}
     QProcess * ps;
     static const QString TOR_EXEC;
-    static const QString TOR_CONFIG;
+    static const QString TOR_CONFIG_CLIENT;
+    static const QString TOR_CONFIG_SERVER;
     static const QString TOR_ARGS;
 };
 
 const QString ProcessTor::PD::TOR_EXEC = "./tor";
-const QString ProcessTor::PD::TOR_CONFIG = "./tor-cfg/torrc";
-const QString ProcessTor::PD::TOR_ARGS = "-f ./tor-cfg/torrc";
+const QString ProcessTor::PD::TOR_CONFIG_CLIENT = "./tor-cfg/torrc.client";
+const QString ProcessTor::PD::TOR_CONFIG_SERVER = "./tor-cfg/torrc.server";
+const QString ProcessTor::PD::TOR_ARGS = "./tor-cfg/torrc";
 
 ProcessTor::ProcessTor( QObject * parent, bool host )
 {
     pd = new PD();
     pd->ps = new QProcess( this );
+    connect( pd->ps, SIGNAL(readyRead()), this, SLOT(slotReadyRead()) );
 
-    if ( !QFile::exists( PD::TOR_CONFIG ) )
+
+    if ( ( !( (host) && ( QFile::exists( PD::TOR_CONFIG_SERVER ) ) ) ) ||
+         ( !( (!host) && ( QFile::exists( PD::TOR_CONFIG_CLIENT ) ) ) ) )
         createConfig();
 
     QString args = QString( "%1%2" ).arg( PD::TOR_ARGS ).arg( host ? ".serv" : ".client" );
     qDebug() << args;
-    pd->ps->start( PD::TOR_EXEC, QStringList() << args );
+    pd->ps->start( PD::TOR_EXEC, QStringList() << "-f" << args );
 
     bool res = pd->ps->waitForStarted();
 
@@ -122,6 +127,13 @@ bool ProcessTor::createConfig()
     fin.close();
 
     return true;
+}
+
+void ProcessTor::slotReadyRead()
+{
+    QByteArray data = pd->ps->readAll();
+    QString stri = QString::fromAscii( data.data(), data.size() );
+    qDebug() << stri;
 }
 
 ProcessTor::~ProcessTor()
