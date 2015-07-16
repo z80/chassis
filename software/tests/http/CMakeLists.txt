@@ -43,3 +43,5 @@ set( libs qxmpp
           ${QT_LIBRARIES} )
 target_link_libraries( ${PROJ_NAME} ${libs} qxmpp xmpp_io common qtwebapp )
 install( TARGETS ${PROJ_NAME} DESTINATION "./" )
+install( FILES "./etc/Demo2.ini" DESTINATION "./" )
+

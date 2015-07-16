@@ -30,6 +30,7 @@ QString searchConfigFile() {
     QString fileName(appName+".ini");
 
     QStringList searchList;
+    searchList.append( "." );
     searchList.append(binDir);
     searchList.append(binDir+"/etc");
     searchList.append(binDir+"/../etc");
