@@ -1,6 +1,10 @@
 
 set( PROJ_NAME test_http )
 
+if ( USE_OPENCV )
+    find_package( OpenCV REQUIRED )
+endif ( USE_OPENCV )
+
 find_package( Qt4 )
 set( QT_USE_QTCORE     True )
 set( QT_USE_QTNETWORK  True )
@@ -20,6 +24,9 @@ include_directories( "./src"
                      ${ROOT}/3dparty/QtWebApp-src/QtWebApp/qtservice
                      ${ROOT}/3dparty/QtWebApp-src/QtWebApp/templateengine )
 
+if ( USE_OPENCV )
+    include_directories( ${OPENCV_INCLUDE_DIRS} )
+endif ( USE_OPENCV )
 
 
 file( GLOB src     "./src/*.cpp" )
@@ -41,6 +48,10 @@ set( src ${src} ${qrcSrc} )
 add_executable( ${PROJ_NAME} ${src} )
 set( libs qxmpp
           ${QT_LIBRARIES} )
+if ( USE_OPENCV )
+    set( libs ${libs} ${OpenCV_LIBS} )
+endif ( USE_OPENCV )
+
 target_link_libraries( ${PROJ_NAME} ${libs} qxmpp xmpp_io common qtwebapp )
 install( TARGETS ${PROJ_NAME} DESTINATION "./" )
 install( FILES "./etc/Demo2.ini" DESTINATION "./" )

@@ -22,6 +22,7 @@ public:
       @param parent Parent object
     */
     RequestHandler(QObject* parent=0);
+    ~RequestHandler();
 
     /**
       Process an incoming HTTP request.
