@@ -1,0 +1,24 @@
+<RCC>
+    <qresource prefix="/">
+        <file>res/templates/header.tpl</file>
+        <file>res/templates/camera.tpl</file>
+        <file>res/templates/footer.tpl</file>
+        <file>res/templates/login.tpl</file>
+        <file>res/templates/index.tpl</file>
+        <file>res/fonts/glyphicons-halflings-regular.ttf</file>
+        <file>res/fonts/glyphicons-halflings-regular.woff2</file>
+        <file>res/fonts/glyphicons-halflings-regular.eot</file>
+        <file>res/fonts/glyphicons-halflings-regular.woff</file>
+        <file>res/fonts/glyphicons-halflings-regular.svg</file>
+        <file>res/scripts/npm.js</file>
+        <file>res/scripts/bootstrap.min.js</file>
+        <file>res/scripts/jquery-2.1.4.min.js</file>
+        <file>res/scripts/bootstrap.js</file>
+        <file>res/styles/bootstrap-theme.css.map</file>
+        <file>res/styles/bootstrap-theme.css</file>
+        <file>res/styles/bootstrap.css</file>
+        <file>res/styles/bootstrap.min.css</file>
+        <file>res/styles/bootstrap.css.map</file>
+        <file>res/styles/bootstrap-theme.min.css</file>
+    </qresource>
+</RCC>
