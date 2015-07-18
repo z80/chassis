@@ -20,5 +20,6 @@
         <file>res/styles/bootstrap.min.css</file>
         <file>res/styles/bootstrap.css.map</file>
         <file>res/styles/bootstrap-theme.min.css</file>
+        <file>res/index.html</file>
     </qresource>
 </RCC>

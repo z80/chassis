@@ -1,6 +1,9 @@
 
 #include "res_handler.h"
+#include <logging/logger.h>
+#include <iostream>
 
+static Logger logger;
 
 class ResSingleton
 {
@@ -77,10 +80,15 @@ ResHandler::~ResHandler()
     delete pd;
 }
 
-bool ResHandler::service( HttpRequest& request, HttpResponse& response )
+bool ResHandler::service( HttpRequest& request, HttpResponse& response, const QString & override )
 {
     QCache< QString, const QByteArray > & c = pd->cache;
-    QString resName = QString( ":%1" ).arg( QString::fromAscii( request.getPath() ) );
+    QString resName = ( override.length() > 0 ) ? QString( ":/res/%1" ).arg( override ) : QString( ":/res%1" ).arg( QString::fromAscii( request.getPath() ) );
+
+    QByteArray aaa = resName.toAscii();
+    qWarning( "resName = %s", resName.toAscii().data() );
+    //std::cout << aaa.data();
+    //logger << resName;
 
     if ( c.contains( resName ) )
     {
@@ -95,6 +103,9 @@ bool ResHandler::service( HttpRequest& request, HttpResponse& response )
     while (it.hasNext())
     {
         QString fname = it.next();
+
+        qWarning() << fname;
+
         if ( fname == resName )
         {
             QByteArray * pa = new QByteArray();

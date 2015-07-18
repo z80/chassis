@@ -9,6 +9,7 @@
 #include <httpserver/httplistener.h>
 #include <logging/filelogger.h>
 #include "requesthandler.h"
+#include "root_handler.h"
 
 /** Name of this application */
 #define APPNAME "Demo2"
@@ -87,7 +88,8 @@ int main(int argc, char *argv[]) {
     qDebug("ServiceHelper: Starting service");
     QSettings* listenerSettings=new QSettings(configFileName,QSettings::IniFormat,app);
     listenerSettings->beginGroup("listener");
-    listener=new HttpListener(listenerSettings,new RequestHandler(app),app);
+    //listener=new HttpListener(listenerSettings,new RequestHandler(app),app);
+    listener=new HttpListener(listenerSettings,new RootHandler(app),app);
 
     if (logSettings->value("bufferSize",0).toInt()>0 && logSettings->value("minLevel",0).toInt()>0) {
         qDebug("You see these debug messages because the logging buffer is enabled");

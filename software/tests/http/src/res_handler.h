@@ -12,7 +12,7 @@ public:
     ResHandler( QObject * parent = 0 );
     ~ResHandler();
 
-    bool service( HttpRequest& request, HttpResponse& response );
+    bool service( HttpRequest& request, HttpResponse& response, const QString & override = "" );
 
 private:
     class PD;
