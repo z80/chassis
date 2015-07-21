@@ -12,9 +12,11 @@
     function refresh()
     {
       var val = Math.random()*(1000.99);
-      $( "#img" ).attr( "src", "png-image?d=" + val.toString() );
+      var img = new Image()
+      img.src = "jpg-image?d=" + val.toString();
+      $( "#img" ).attr( "src", img.src );
     }
-    setInterval( refresh, 33 )
+    setInterval( refresh, 1000 )
   </script>
 </body>
 

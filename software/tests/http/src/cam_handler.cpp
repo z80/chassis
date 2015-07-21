@@ -30,7 +30,7 @@ CamHandler::~CamHandler()
 
 bool CamHandler::service( HttpRequest& request, HttpResponse& response )
 {
-    if ( request.getPath() != "/png-image" )
+    if ( request.getPath() != "/jpg-image" )
         return false;
     cv::VideoCapture & webcam = pd->webcam;
     cv::Mat & frame           = pd->frame;
@@ -45,9 +45,9 @@ bool CamHandler::service( HttpRequest& request, HttpResponse& response )
 
     QBuffer buffer( &pd->data );
     buffer.open(QIODevice::WriteOnly);
-    image.save( &buffer, "PNG" );
+    image.save( &buffer, "JPG", 70 );
 
-    response.setHeader("Content-Type", "image/png");
+    response.setHeader("Content-Type", "image/jpg");
     response.write( pd->data, true );
 
     return true;
