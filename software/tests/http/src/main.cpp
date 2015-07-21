@@ -1,7 +1,3 @@
-/**
-  @file
-  @author Stefan Frings
-*/
 
 #include <QCoreApplication>
 #include <QDir>
@@ -11,10 +7,6 @@
 #include "root_handler.h"
 #include "sys_tray.h"
 
-
-/**
-  Entry point of the program.
-*/
 int main(int argc, char *argv[]) {
 
     // Initialize the core application
