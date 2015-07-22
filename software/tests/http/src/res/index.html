@@ -21,14 +21,30 @@
     </div>
   </div>
   <script>
-    function refresh()
+    function imgNewName()
     {
       var val = Math.random()*(1000.99);
-      var img = new Image()
-      img.src = "jpg-image?d=" + val.toString();
-      $( "#img" ).attr( "src", img.src );
+      var res = "jpg-image?d=" + val.toString();
+      return res;
     }
-    setInterval( refresh, 1000 )
+
+    function loadHandler()
+    {
+      $( "#img" ).attr( "src", image.src );
+      image.src = imgNewName();
+    }
+
+    var image = new Image();
+
+    function docReady()
+    {
+      var curName = imgNewName();
+      image.onload = loadHandler();
+      image.src = imgNewName();
+    }
+
+    $( document ).ready( docReady )
+
   </script>
 </body>
 

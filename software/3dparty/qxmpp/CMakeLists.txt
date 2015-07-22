@@ -15,9 +15,12 @@ set( QT_USE_QTXML      True )
 include( ${QT_USE_FILE} )
 
 
-if ( WIN32 )
-    include( ./vpx.cmake )
-endif ( WIN32 )
+if ( QXMPP_USE_CODECS )
+    if ( WIN32 )
+        include( ./vpx.cmake )
+    endif ( WIN32 )
+endif ( QXMPP_USE_CODECS )
+
 
 include_directories( "./src/base" 
                      "./src/client" 
