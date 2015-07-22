@@ -5,24 +5,9 @@ set( PROJ_NAME common )
 find_package( Qt4 )
 set( QT_USE_QTCORE       True )
 set( QT_USE_QTGUI        True )
-set( QT_USE_QTNETWORK    True )
-set( QT_USE_QTXML        True )
-set( QT_USE_QTMULTIMEDIA True )
-set( QT_USE_PHONON       True )
 include( ${QT_USE_FILE} )
 
-set( Boost_USE_STATIC_LIBS True )
-set( Boost_USE_MULTITHREADED True )
-find_package( Boost COMPONENTS thread filesystem date_time system REQUIRED )
-find_package( Threads )
-
 include_directories( "./src" 
-                     ${ROOT}/3dparty/lua-5.1.5/src 
-                     ${ROOT}/3dparty/lua-5.1.5/etc 
-                     ${ROOT}/3dparty/qxmpp/src/base 
-                     ${ROOT}/3dparty/qxmpp/src/client 
-                     ${ROOT}/3dparty/qxmpp/src/server 
-                     ${Boost_INCLUDE_DIRS} 
                      ${CMAKE_CURRENT_BINARY_DIR} )
 
 file( GLOB src     "./src/*.cpp" )
@@ -42,8 +27,7 @@ QT4_ADD_RESOURCES( qrcSrc ${qrc} )
 set( src ${src} ${qrcSrc} )
 
 add_library( ${PROJ_NAME} STATIC ${src} )
-set( libs qxmpp )
-set( libs ${libs} ${QT_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT} ${Boost_LIBRARIES} liblua-5.1.5 )
+set( libs ${QT_LIBRARIES} )
 set( defs QXMPP_STATIC )
 
 target_link_libraries( ${PROJ_NAME} ${libs} )

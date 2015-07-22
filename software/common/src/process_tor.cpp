@@ -103,7 +103,7 @@ bool ProcessTor::createConfig()
         rx.setPatternSyntax( QRegExp::FixedString );
         if ( rx.indexIn( torrc_stri ) >= 0 )
         {
-            torrc_stri = torrc_stri.replace( rx, "7100" );
+            torrc_stri = torrc_stri.replace( rx, "8080" );
             torrc_stri = torrc_stri.replace( "#", "" );
         }
 

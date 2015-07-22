@@ -11,6 +11,7 @@ public:
     SysTray( QObject * parent = 0 );
     ~SysTray();
 private slots:
+    void slotSettings();
     void slotQuit();
 private:
     class PD;

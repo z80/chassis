@@ -72,7 +72,7 @@ endif ( WIN32 )
 
 
 add_executable( ${PROJ_NAME} ${BLD_TYPE} ${src} )
-set( libs ${QT_LIBRARIES} )
+set( libs ${QT_LIBRARIES} common )
 if ( USE_OPENCV )
     set( libs ${libs} ${OpenCV_LIBS} )
 endif ( USE_OPENCV )
