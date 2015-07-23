@@ -67,6 +67,11 @@ SysTray::SysTray( QObject * parent )
     connect( pd->actionQuit,     SIGNAL(triggered()), this, SLOT(slotQuit()) );
 
     this->setIcon( QIcon( ":res/icon-dark.png" ) );
+
+    QSettings sss( PD::settingsFile, QSettings::IniFormat, this );
+    bool startTor = sss.value( "tor", false ).toBool();
+    if ( startTor )
+        pd->tor->start();
 }
 
 SysTray::~SysTray()

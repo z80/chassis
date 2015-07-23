@@ -1,8 +1,9 @@
 <html>
 <head>
-  <link href="styles/bootstrap.min.css" rel="stylesheet"/>
   <script src="scripts/jquery-2.1.4.min.js"></script>
   <script src="scripts/bootstrap.min.js"></script>
+  <script src="scripts.js"></script>
+  <link href="styles/bootstrap.min.css" rel="stylesheet"></link>
 </head>
 
 <body>
@@ -20,35 +21,6 @@
       <div class="col-vs-2"></div>
     </div>
   </div>
-  <script>
-    var image = new Image();
-
-    function imgNewName()
-    {
-    var val = Math.random()*(1000.99);
-    var res = "jpg-image?d=" + val.toString();
-    return res;
-    }
-
-    function loadHandler()
-    {
-    console.log( "load handler" );
-    $( "#img" ).attr( "src", image.src );
-    image.src = imgNewName();
-    }
-
-    function docReady()
-    {
-    var curName = imgNewName();
-    image.onload = loadHandler();
-    image.src = curName;
-    console.log( "document ready" );
-    //setInterval( loadHandler, 1000 );
-    }
-
-    $( document ).ready( docReady )
-
-  </script>
 </body>
 
 </html>
