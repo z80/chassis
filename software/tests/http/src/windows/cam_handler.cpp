@@ -105,6 +105,7 @@ bool CamHandler::service( HttpRequest& request, HttpResponse& response )
     QImage image = pd->image();
 
     QBuffer buffer( &pd->data );
+    QSize sz = image.size();
     buffer.open(QIODevice::WriteOnly);
     bool res = image.save( &buffer, "JPG", 70 );
 

@@ -10,6 +10,9 @@ class SysTray: public QSystemTrayIcon
 public:
     SysTray( QObject * parent = 0 );
     ~SysTray();
+
+    bool runTor();
+    void stopTor();
 private slots:
     void slotSettings();
     void slotQuit();

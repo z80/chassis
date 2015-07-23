@@ -21,26 +21,29 @@
     </div>
   </div>
   <script>
+    var image = new Image();
+
     function imgNewName()
     {
-      var val = Math.random()*(1000.99);
-      var res = "jpg-image?d=" + val.toString();
-      return res;
+    var val = Math.random()*(1000.99);
+    var res = "jpg-image?d=" + val.toString();
+    return res;
     }
 
     function loadHandler()
     {
-      $( "#img" ).attr( "src", image.src );
-      image.src = imgNewName();
+    console.log( "load handler" );
+    $( "#img" ).attr( "src", image.src );
+    image.src = imgNewName();
     }
-
-    var image = new Image();
 
     function docReady()
     {
-      var curName = imgNewName();
-      image.onload = loadHandler();
-      image.src = imgNewName();
+    var curName = imgNewName();
+    image.onload = loadHandler();
+    image.src = curName;
+    console.log( "document ready" );
+    //setInterval( loadHandler, 1000 );
     }
 
     $( document ).ready( docReady )

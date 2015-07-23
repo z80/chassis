@@ -12,7 +12,11 @@ public:
 	ProcessTor( QObject * parent = 0, bool host = true );
 	~ProcessTor();
 
-    QString hiddenAddr() const;
+    bool start();
+    bool stop();
+    bool isRunning() const;
+
+    static QString hiddenAddr();
 private:
     bool createConfig();
 private slots:
