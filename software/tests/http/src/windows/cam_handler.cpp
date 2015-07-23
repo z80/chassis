@@ -17,6 +17,7 @@ public:
     int dev;
     QImage           imageRaw;
     QByteArray       data;
+    QMutex mutex;
 
     PD()
     {
@@ -33,6 +34,8 @@ private:
 
 QStringList CamHandler::PD::devices()
 {
+    QMutexLocker lock( &mutex );
+
     int cnt = vi.listDevices();	
     QStringList l;
     l.reserve( cnt );
@@ -46,6 +49,8 @@ QStringList CamHandler::PD::devices()
 
 bool CamHandler::PD::setDevice( int index )
 {
+    QMutexLocker lock( &mutex );
+
     dev = index;
     bool res = updateDevice();
     return res;
@@ -53,6 +58,8 @@ bool CamHandler::PD::setDevice( int index )
 
 const QImage & CamHandler::PD::image()
 {
+    QMutexLocker lock( &mutex );
+
 	int size = vi.getSize( dev );
     if ( size > 0 )
     {
@@ -93,8 +100,12 @@ CamHandler::CamHandler( QObject * parent )
 
 CamHandler::~CamHandler()
 {
+    pd->mutex.lock();
     if ( pd->dev >= 0 )
         pd->vi.stopDevice( pd->dev );
+    pd->mutex.unlock();
+
+    delete pd;
 }
 
 bool CamHandler::service( HttpRequest& request, HttpResponse& response )

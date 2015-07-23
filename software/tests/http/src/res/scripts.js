@@ -1,4 +1,5 @@
     var image = new Image();
+    var timeout;
 
     function imgNewName()
     {
@@ -7,20 +8,28 @@
       return res;
     }
 
+    function onTimeout( tm )
+    {
+      clearTimeout( timeout );
+      var name = imgNewName();
+      image.src = name;
+    }
+
     function loadHandler()
     {
       console.log( "load handler" );
       $( "#img" ).attr( "src", image.src );
-      image.src = imgNewName();
+      timeout = setTimeout( onTimeout, 200 );
     }
-
+    
     function documentReady()
     {
       console.log( "document ready" );
-      var curName = imgNewName();
+      var name = imgNewName();
       image.onload = loadHandler;
-      image.src = curName;
+      image.src = name;
       //setInterval( loadHandler, 1000 );
+      timeout = setTimeout( onTimeout, 1000 );
     }
     
     console.log( "before setting handler" );

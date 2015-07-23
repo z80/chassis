@@ -86,5 +86,4 @@ endif ( WIN32 )
 
 target_link_libraries( ${PROJ_NAME} ${libs} qtwebapp ${QT_LIBRARIES} )
 install( TARGETS ${PROJ_NAME} DESTINATION "./" )
-install( FILES "./etc/Demo2.ini" DESTINATION "./" )
 
