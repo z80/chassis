@@ -45,9 +45,9 @@ bool CamHandler::service( HttpRequest& request, HttpResponse& response )
 
     QBuffer buffer( &pd->data );
     buffer.open(QIODevice::WriteOnly);
-    image.save( &buffer, "JPG", 70 );
+    bool res = image.save( &buffer, "PNG", 70 );
 
-    response.setHeader("Content-Type", "image/jpg");
+    response.setHeader("Content-Type", "image/png");
     response.write( pd->data, true );
 
     return true;

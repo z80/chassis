@@ -32,9 +32,9 @@ public:
 };
 
 const QString ProcessTor::PD::TOR_EXEC = "./tor";
-const QString ProcessTor::PD::TOR_CONFIG_CLIENT = "./tor-cfg/torrc.client";
-const QString ProcessTor::PD::TOR_CONFIG_SERVER = "./tor-cfg/torrc.server";
-const QString ProcessTor::PD::TOR_ARGS = "./tor-cfg/torrc";
+const QString ProcessTor::PD::TOR_CONFIG_CLIENT = "./tor.cfg/torrc.client";
+const QString ProcessTor::PD::TOR_CONFIG_SERVER = "./tor.cfg/torrc.server";
+const QString ProcessTor::PD::TOR_ARGS = "./tor.cfg/torrc";
 
 ProcessTor::ProcessTor( QObject * parent, bool host )
 {
@@ -46,24 +46,12 @@ ProcessTor::ProcessTor( QObject * parent, bool host )
     if ( ( !( (host) && ( QFile::exists( PD::TOR_CONFIG_SERVER ) ) ) ) ||
          ( !( (!host) && ( QFile::exists( PD::TOR_CONFIG_CLIENT ) ) ) ) )
         createConfig();
-
-    QString args = QString( "%1%2" ).arg( PD::TOR_ARGS ).arg( host ? ".serv" : ".client" );
-    qDebug() << args;
-    pd->ps->start( PD::TOR_EXEC, QStringList() << "-f" << args );
-
-    bool res = pd->ps->waitForStarted();
-
-    qDebug() << "run res: " << (res ? "true" : "false");
-
-    res = (pd->ps->state() == QProcess::Running);
-
-    qDebug() << "running: " << (res ? "true" : "false");
 }
 
 bool ProcessTor::createConfig()
 {
     QDir dir;
-    if ( ( !dir.exists( "./tor-cfg" ) ) && ( !dir.mkdir( "./tor-cfg" ) ) )
+    if ( ( !dir.exists( "./tor.cfg" ) ) && ( !dir.mkdir( "./tor.cfg" ) ) )
         return false;
 
     QStringList l;
@@ -79,18 +67,18 @@ bool ProcessTor::createConfig()
     foreach( QString stri, l )
     {
         QString src  = QString( ":/files/%1" ).arg( stri );
-        QString dest = QString( "./tor-cfg/%1" ).arg( stri );
+        QString dest = QString( "./tor.cfg/%1" ).arg( stri );
         QFile f( src );
         f.copy( dest );
     }
 
     QFile fin( ":/files/torrc.template" );
-    fin.copy( "./tor-cfg/torrc.client" );
+    fin.copy( "./tor.cfg/torrc.client" );
     if ( !fin.open( QIODevice::ReadOnly ) )
         return false;
     QTextStream in( &fin );
 
-    QFile fout( "./tor-cfg/torrc.serv" );
+    QFile fout( "./tor.cfg/torrc.serv" );
     if ( !fout.open( QIODevice::WriteOnly ) )
         return false;
     QTextStream out( &fout );
@@ -103,7 +91,7 @@ bool ProcessTor::createConfig()
         rx.setPatternSyntax( QRegExp::FixedString );
         if ( rx.indexIn( torrc_stri ) >= 0 )
         {
-            torrc_stri = torrc_stri.replace( rx, "7100" );
+            torrc_stri = torrc_stri.replace( rx, "8080" );
             torrc_stri = torrc_stri.replace( "#", "" );
         }
 
@@ -117,7 +105,7 @@ bool ProcessTor::createConfig()
         rx.setPattern( "{servicedir}" );
         if ( rx.indexIn( torrc_stri ) >= 0 )
         {
-            torrc_stri = torrc_stri.replace( rx, "./tor-service" );
+            torrc_stri = torrc_stri.replace( rx, "./tor.service" );
             torrc_stri = torrc_stri.replace( "#", "" );
         }
         out << torrc_stri << "\r\n";
@@ -144,8 +132,52 @@ ProcessTor::~ProcessTor()
     delete pd;
 }
 
-QString ProcessTor::hiddenAddr() const
+bool ProcessTor::start()
 {
-    return "QString()";
+    QString args = QString( "%1%2" ).arg( PD::TOR_ARGS ).arg( ".serv" );
+    qDebug() << args;
+    pd->ps->start( PD::TOR_EXEC, QStringList() << "-f" << args );
+
+    bool res = pd->ps->waitForStarted();
+
+    qDebug() << "run res: " << (res ? "true" : "false");
+
+    res = (pd->ps->state() == QProcess::Running);
+
+    qDebug() << "running: " << (res ? "true" : "false");
+    return res;
+}
+
+bool ProcessTor::stop()
+{
+    pd->ps->terminate();
+    bool res = pd->ps->waitForFinished();
+    if ( !res )
+        pd->ps->kill();
+    return res;
+}
+
+bool ProcessTor::isRunning() const
+{
+    bool res = (pd->ps->state() != QProcess::NotRunning);
+    return res;
+}
+
+QString ProcessTor::hiddenAddr()
+{
+    QFile f( "./tor.service/hostname" );
+    if ( f.open( QIODevice::ReadOnly ) )
+    {
+        QByteArray a = f.readAll();
+        f.close();
+        QString stri = QString::fromAscii( a );
+        QRegExp re( "(\\S+\\.onion)" );
+        if ( re.indexIn( stri ) >= 0 )
+        {
+            stri = re.cap( 1 );
+            return stri;
+        }
+    }
+    return "none yet";
 }
 

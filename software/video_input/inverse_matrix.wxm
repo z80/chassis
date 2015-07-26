@@ -1,0 +1,42 @@
+/* [wxMaxima batch file version 1] [ DO NOT EDIT BY HAND! ]*/
+/* [ Created with wxMaxima version 12.01.0 ] */
+
+/* [wxMaxima: input   start ] */
+kill( all );
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+m: matrix( [ x4,   x2y2, x3y,  x3,  x2y, x2 ], 
+           [ x2y2, y4,   xy3,  xy2, y3,  y2 ], 
+           [ x3y,  xy3,  x2y2, x2y, xy2, xy ], 
+           [ x3,   xy2,  x2y,  x2,  xy,  x ], 
+           [ x2y,  y3,   xy2,  xy,  y2,  y ], 
+           [ x2,   y2,   xy,   x,   y,   _1 ] );
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+C(4, 2);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+numer: true;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+a: matrix( [12, 3072, 3840], [3072, 917504, 983040], [3840, 983040, 1474560] );
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+invA: invert( a );
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+b: matrix( [ 1678 ], [ 405760 ], [ 556288 ] );
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+aa: invert( a ) . b;
+/* [wxMaxima: input   end   ] */
+
+/* Maxima can't load/batch files which end with a comment! */
+"Created with wxMaxima"$

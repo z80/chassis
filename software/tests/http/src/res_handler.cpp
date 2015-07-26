@@ -85,10 +85,8 @@ bool ResHandler::service( HttpRequest& request, HttpResponse& response, const QS
     QCache< QString, const QByteArray > & c = pd->cache;
     QString resName = ( override.length() > 0 ) ? QString( ":/res/%1" ).arg( override ) : QString( ":/res%1" ).arg( QString::fromAscii( request.getPath() ) );
 
-    QByteArray aaa = resName.toAscii();
-    qWarning( "resName = %s", resName.toAscii().data() );
-    //std::cout << aaa.data();
-    //logger << resName;
+    //QByteArray aaa = resName.toAscii();
+    //qWarning( "resName = %s", resName.toAscii().data() );
 
     if ( c.contains( resName ) )
     {
@@ -104,7 +102,7 @@ bool ResHandler::service( HttpRequest& request, HttpResponse& response, const QS
     {
         QString fname = it.next();
 
-        qWarning() << fname;
+        //qWarning() << fname;
 
         if ( fname == resName )
         {

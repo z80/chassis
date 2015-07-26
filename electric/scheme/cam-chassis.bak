@@ -63,7 +63,7 @@ F 1 "ATMEGA8-AI" H 5500 600 40  0000 L BNN
 F 2 "Housings_QFP:TQFP-32_7x7mm_Pitch0.8mm" H 5000 2150 30  0000 C CIN
 F 3 "" H 5000 2150 60  0000 C CNN
 	1    5000 2150
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 $Comp
 L C C1
@@ -74,7 +74,7 @@ F 1 "18p" H 1106 1265 40  0000 L CNN
 F 2 "Capacitors_SMD:C_0805_HandSoldering" H 1138 1200 30  0000 C CNN
 F 3 "~" H 1100 1350 60  0000 C CNN
 	1    1100 1350
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 $Comp
 L C C2
@@ -85,7 +85,7 @@ F 1 "18p" H 1106 2365 40  0000 L CNN
 F 2 "Capacitors_SMD:C_0805_HandSoldering" H 1138 2300 30  0000 C CNN
 F 3 "~" H 1100 2450 60  0000 C CNN
 	1    1100 2450
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 Text Label 3750 1850 0    60   ~ 0
 xtal1
@@ -104,7 +104,7 @@ F 1 "GND" H 1100 2780 30  0001 C CNN
 F 2 "" H 1100 2850 60  0000 C CNN
 F 3 "" H 1100 2850 60  0000 C CNN
 	1    1100 2850
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 $Comp
 L GND #PWR1
@@ -115,7 +115,7 @@ F 1 "GND" H 700 1080 30  0001 C CNN
 F 2 "" H 700 1150 60  0000 C CNN
 F 3 "" H 700 1150 60  0000 C CNN
 	1    700  1150
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 $Comp
 L C C3
@@ -126,7 +126,7 @@ F 1 "100n" H 2206 1665 40  0000 L CNN
 F 2 "Capacitors_SMD:C_0805_HandSoldering" H 2238 1600 30  0000 C CNN
 F 3 "~" H 2200 1750 60  0000 C CNN
 	1    2200 1750
-	-1   0    0    1   
+	-1   0    0    1
 $EndComp
 $Comp
 L GND #PWR14
@@ -137,7 +137,7 @@ F 1 "GND" H 4000 1580 30  0001 C CNN
 F 2 "" H 4000 1650 60  0000 C CNN
 F 3 "" H 4000 1650 60  0000 C CNN
 	1    4000 1650
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 Text Label 3750 1150 0    60   ~ 0
 rst
@@ -150,7 +150,7 @@ F 1 "30k" V 2207 1101 40  0000 C CNN
 F 2 "Resistors_SMD:R_0805_HandSoldering" V 2130 1100 30  0000 C CNN
 F 3 "~" H 2200 1100 30  0000 C CNN
 	1    2200 1100
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 $Comp
 L GND #PWR5
@@ -161,7 +161,7 @@ F 1 "GND" H 2200 2080 30  0001 C CNN
 F 2 "" H 2200 2150 60  0000 C CNN
 F 3 "" H 2200 2150 60  0000 C CNN
 	1    2200 2150
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 $Comp
 L VCC #PWR4
@@ -171,8 +171,8 @@ F 0 "#PWR4" H 2200 750 30  0001 C CNN
 F 1 "VCC" H 2200 750 30  0000 C CNN
 F 2 "" H 2200 650 60  0000 C CNN
 F 3 "" H 2200 650 60  0000 C CNN
-	1    2200 650 
-	1    0    0    -1  
+	1    2200 650
+	1    0    0    -1
 $EndComp
 Text Label 2300 1450 0    60   ~ 0
 rst
@@ -185,7 +185,7 @@ F 1 "100n" H 2206 2765 40  0000 L CNN
 F 2 "Capacitors_SMD:C_0805_HandSoldering" H 2238 2700 30  0000 C CNN
 F 3 "~" H 2200 2850 60  0000 C CNN
 	1    2200 2850
-	-1   0    0    1   
+	-1   0    0    1
 $EndComp
 $Comp
 L GND #PWR7
@@ -196,7 +196,7 @@ F 1 "GND" H 2200 3180 30  0001 C CNN
 F 2 "" H 2200 3250 60  0000 C CNN
 F 3 "" H 2200 3250 60  0000 C CNN
 	1    2200 3250
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 $Comp
 L VCC #PWR6
@@ -207,7 +207,7 @@ F 1 "VCC" H 2200 2550 30  0000 C CNN
 F 2 "" H 2200 2450 60  0000 C CNN
 F 3 "" H 2200 2450 60  0000 C CNN
 	1    2200 2450
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 Text Label 2250 2550 0    60   ~ 0
 mcu-vcc
@@ -220,7 +220,7 @@ F 1 "100n" H 2756 2765 40  0000 L CNN
 F 2 "Capacitors_SMD:C_0805_HandSoldering" H 2788 2700 30  0000 C CNN
 F 3 "~" H 2750 2850 60  0000 C CNN
 	1    2750 2850
-	-1   0    0    1   
+	-1   0    0    1
 $EndComp
 $Comp
 L GND #PWR9
@@ -231,7 +231,7 @@ F 1 "GND" H 2750 3180 30  0001 C CNN
 F 2 "" H 2750 3250 60  0000 C CNN
 F 3 "" H 2750 3250 60  0000 C CNN
 	1    2750 3250
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 $Comp
 L VCC #PWR8
@@ -242,7 +242,7 @@ F 1 "VCC" H 2750 2550 30  0000 C CNN
 F 2 "" H 2750 2450 60  0000 C CNN
 F 3 "" H 2750 2450 60  0000 C CNN
 	1    2750 2450
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 $Comp
 L C C6
@@ -253,7 +253,7 @@ F 1 "100n" H 2756 3865 40  0000 L CNN
 F 2 "Capacitors_SMD:C_0805_HandSoldering" H 2788 3800 30  0000 C CNN
 F 3 "~" H 2750 3950 60  0000 C CNN
 	1    2750 3950
-	-1   0    0    1   
+	-1   0    0    1
 $EndComp
 $Comp
 L GND #PWR11
@@ -264,7 +264,7 @@ F 1 "GND" H 2750 4280 30  0001 C CNN
 F 2 "" H 2750 4350 60  0000 C CNN
 F 3 "" H 2750 4350 60  0000 C CNN
 	1    2750 4350
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 $Comp
 L VCC #PWR10
@@ -275,7 +275,7 @@ F 1 "VCC" H 2750 3650 30  0000 C CNN
 F 2 "" H 2750 3550 60  0000 C CNN
 F 3 "" H 2750 3550 60  0000 C CNN
 	1    2750 3550
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 $Comp
 L GND #PWR15
@@ -286,7 +286,7 @@ F 1 "GND" H 5000 4080 30  0001 C CNN
 F 2 "" H 5000 4150 60  0000 C CNN
 F 3 "" H 5000 4150 60  0000 C CNN
 	1    5000 4150
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 Text Label 6200 2950 0    60   ~ 0
 d-
@@ -301,7 +301,7 @@ F 1 "68" V 8807 5751 40  0000 C CNN
 F 2 "Resistors_SMD:R_0805_HandSoldering" V 8730 5750 30  0000 C CNN
 F 3 "~" H 8800 5750 30  0000 C CNN
 	1    8800 5750
-	0    -1   -1   0   
+	0    -1   -1   0
 $EndComp
 Text Label 8300 5750 0    60   ~ 0
 d-
@@ -314,7 +314,7 @@ F 1 "68" V 8807 5951 40  0000 C CNN
 F 2 "Resistors_SMD:R_0805_HandSoldering" V 8730 5950 30  0000 C CNN
 F 3 "~" H 8800 5950 30  0000 C CNN
 	1    8800 5950
-	0    -1   -1   0   
+	0    -1   -1   0
 $EndComp
 Text Label 8300 5950 0    60   ~ 0
 d+
@@ -327,7 +327,7 @@ F 1 "1k5" V 9157 5401 40  0000 C CNN
 F 2 "Resistors_SMD:R_0805_HandSoldering" V 9080 5400 30  0000 C CNN
 F 3 "~" H 9150 5400 30  0000 C CNN
 	1    9150 5400
-	-1   0    0    1   
+	-1   0    0    1
 $EndComp
 $Comp
 L ZENER-RESCUE-cam-chassis D2
@@ -338,7 +338,7 @@ F 1 "3v6" H 9150 6400 40  0000 C CNN
 F 2 "my_foots:MY_STAB-3.5-mm" H 9150 6500 60  0000 C CNN
 F 3 "~" H 9150 6500 60  0000 C CNN
 	1    9150 6500
-	0    -1   -1   0   
+	0    -1   -1   0
 $EndComp
 $Comp
 L ZENER-RESCUE-cam-chassis D3
@@ -349,7 +349,7 @@ F 1 "3v6" H 9350 6150 40  0000 C CNN
 F 2 "my_foots:MY_STAB-3.5-mm" H 9350 6250 60  0000 C CNN
 F 3 "~" H 9350 6250 60  0000 C CNN
 	1    9350 6250
-	0    -1   -1   0   
+	0    -1   -1   0
 $EndComp
 $Comp
 L R R18
@@ -360,7 +360,7 @@ F 1 "100k" V 9607 6551 40  0000 C CNN
 F 2 "Resistors_SMD:R_0805_HandSoldering" V 9530 6550 30  0000 C CNN
 F 3 "~" H 9600 6550 30  0000 C CNN
 	1    9600 6550
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 $Comp
 L GND #PWR29
@@ -371,7 +371,7 @@ F 1 "GND" H 9750 6930 30  0001 C CNN
 F 2 "" H 9750 7000 60  0000 C CNN
 F 3 "" H 9750 7000 60  0000 C CNN
 	1    9750 7000
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 $Comp
 L GND #PWR25
@@ -382,7 +382,7 @@ F 1 "GND" H 9350 6480 30  0001 C CNN
 F 2 "" H 9350 6550 60  0000 C CNN
 F 3 "" H 9350 6550 60  0000 C CNN
 	1    9350 6550
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 $Comp
 L GND #PWR24
@@ -393,7 +393,7 @@ F 1 "GND" H 9150 6730 30  0001 C CNN
 F 2 "" H 9150 6800 60  0000 C CNN
 F 3 "" H 9150 6800 60  0000 C CNN
 	1    9150 6800
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 $Comp
 L GND #PWR32
@@ -404,7 +404,7 @@ F 1 "GND" H 10400 6880 30  0001 C CNN
 F 2 "" H 10400 6950 60  0000 C CNN
 F 3 "" H 10400 6950 60  0000 C CNN
 	1    10400 6950
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 $Comp
 L GND #PWR33
@@ -415,7 +415,7 @@ F 1 "GND" H 10600 4730 30  0001 C CNN
 F 2 "" H 10600 4800 60  0000 C CNN
 F 3 "" H 10600 4800 60  0000 C CNN
 	1    10600 4800
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 Text Label 6150 1450 0    60   ~ 0
 mosi
@@ -432,7 +432,7 @@ F 1 "VCC" H 9650 5000 30  0000 C CNN
 F 2 "" H 9650 4900 60  0000 C CNN
 F 3 "" H 9650 4900 60  0000 C CNN
 	1    9650 4900
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 $Comp
 L CONN_3X2 P7
@@ -443,7 +443,7 @@ F 1 "servo" V 9000 1100 40  0000 C CNN
 F 2 "Pin_Headers:Pin_Header_Straight_2x03" H 9000 1050 60  0001 C CNN
 F 3 "" H 9000 1050 60  0000 C CNN
 	1    9000 1050
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 Text Label 8250 900  0    60   ~ 0
 gnd
@@ -462,7 +462,7 @@ F 1 "irlml2244" H 3150 5220 60  0000 R CNN
 F 2 "libs:SOT23GDS" H 3150 5400 60  0000 C CNN
 F 3 "~" H 3150 5400 60  0000 C CNN
 	1    3150 5400
-	0    1    -1   0   
+	0    1    -1   0
 $EndComp
 $Comp
 L R R5
@@ -473,7 +473,7 @@ F 1 "3" V 1707 5201 40  0000 C CNN
 F 2 "Resistors_SMD:R_0805_HandSoldering" V 1630 5200 30  0000 C CNN
 F 3 "~" H 1700 5200 30  0000 C CNN
 	1    1700 5200
-	0    -1   -1   0   
+	0    -1   -1   0
 $EndComp
 $Comp
 L PNP Q3
@@ -484,7 +484,7 @@ F 1 "bc857" H 2400 6050 60  0000 R CNN
 F 2 "Housings_SOT-23_SOT-143_TSOT-6:SOT-23" H 2400 5900 60  0000 C CNN
 F 3 "~" H 2400 5900 60  0000 C CNN
 	1    2400 5900
-	0    1    1    0   
+	0    1    1    0
 $EndComp
 $Comp
 L R R6
@@ -495,7 +495,7 @@ F 1 "3" V 1707 5401 40  0000 C CNN
 F 2 "Resistors_SMD:R_0805_HandSoldering" V 1630 5400 30  0000 C CNN
 F 3 "~" H 1700 5400 30  0000 C CNN
 	1    1700 5400
-	0    -1   -1   0   
+	0    -1   -1   0
 $EndComp
 $Comp
 L R R8
@@ -506,7 +506,7 @@ F 1 "30k" V 3157 6551 40  0000 C CNN
 F 2 "Resistors_SMD:R_0805_HandSoldering" V 3080 6550 30  0000 C CNN
 F 3 "~" H 3150 6550 30  0000 C CNN
 	1    3150 6550
-	-1   0    0    1   
+	-1   0    0    1
 $EndComp
 $Comp
 L GND #PWR12
@@ -517,7 +517,7 @@ F 1 "GND" H 3150 7580 30  0001 C CNN
 F 2 "" H 3150 7650 60  0000 C CNN
 F 3 "" H 3150 7650 60  0000 C CNN
 	1    3150 7650
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 $Comp
 L NPN Q4
@@ -528,7 +528,7 @@ F 1 "bc847" H 3050 7350 50  0000 R CNN
 F 2 "Housings_SOT-23_SOT-143_TSOT-6:SOT-23" H 3050 7200 60  0000 C CNN
 F 3 "~" H 3050 7200 60  0000 C CNN
 	1    3050 7200
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 $Comp
 L R R7
@@ -539,7 +539,7 @@ F 1 "1k" V 2407 7201 40  0000 C CNN
 F 2 "Resistors_SMD:R_0805_HandSoldering" V 2330 7200 30  0000 C CNN
 F 3 "~" H 2400 7200 30  0000 C CNN
 	1    2400 7200
-	0    1    1    0   
+	0    1    1    0
 $EndComp
 Text Label 2600 5300 0    60   ~ 0
 src
@@ -560,7 +560,7 @@ F 1 "100" V 7957 1101 40  0000 C CNN
 F 2 "Resistors_SMD:R_0805_HandSoldering" V 7880 1100 30  0000 C CNN
 F 3 "~" H 7950 1100 30  0000 C CNN
 	1    7950 1100
-	0    1    1    0   
+	0    1    1    0
 $EndComp
 $Comp
 L R R19
@@ -571,7 +571,7 @@ F 1 "100" V 10057 1101 40  0000 C CNN
 F 2 "Resistors_SMD:R_0805_HandSoldering" V 9980 1100 30  0000 C CNN
 F 3 "~" H 10050 1100 30  0000 C CNN
 	1    10050 1100
-	0    1    1    0   
+	0    1    1    0
 $EndComp
 $Comp
 L VCC #PWR2
@@ -582,7 +582,7 @@ F 1 "VCC" H 700 5300 30  0000 C CNN
 F 2 "" H 700 5200 60  0000 C CNN
 F 3 "" H 700 5200 60  0000 C CNN
 	1    700  5200
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 Text Label 6150 1950 0    60   ~ 0
 servo-en-400mA
@@ -599,7 +599,7 @@ F 1 "4u7" H 7656 6115 40  0000 L CNN
 F 2 "Capacitors_SMD:C_0805_HandSoldering" H 7688 6050 30  0000 C CNN
 F 3 "~" H 7650 6200 60  0000 C CNN
 	1    7650 6200
-	-1   0    0    1   
+	-1   0    0    1
 $EndComp
 $Comp
 L VCC #PWR20
@@ -610,7 +610,7 @@ F 1 "VCC" H 7650 6000 30  0000 C CNN
 F 2 "" H 7650 5900 60  0000 C CNN
 F 3 "" H 7650 5900 60  0000 C CNN
 	1    7650 5900
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 $Comp
 L GND #PWR21
@@ -621,7 +621,7 @@ F 1 "GND" H 7650 6430 30  0001 C CNN
 F 2 "" H 7650 6500 60  0000 C CNN
 F 3 "" H 7650 6500 60  0000 C CNN
 	1    7650 6500
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 $Comp
 L CP1 C7
@@ -632,7 +632,7 @@ F 1 "1000u" H 3700 5550 50  0000 L CNN
 F 2 "Capacitors_ThroughHole:C_Radial_D10_L13_P5" H 3650 5650 60  0000 C CNN
 F 3 "~" H 3650 5650 60  0000 C CNN
 	1    3650 5650
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 $Comp
 L GND #PWR13
@@ -643,7 +643,7 @@ F 1 "GND" H 3650 5980 30  0001 C CNN
 F 2 "" H 3650 6050 60  0000 C CNN
 F 3 "" H 3650 6050 60  0000 C CNN
 	1    3650 6050
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 $Comp
 L LED-RESCUE-cam-chassis D1
@@ -654,7 +654,7 @@ F 1 "dbg-led" H 6750 4850 50  0000 C CNN
 F 2 "LEDs:LED-5MM" H 6750 4950 60  0000 C CNN
 F 3 "~" H 6750 4950 60  0000 C CNN
 	1    6750 4950
-	0    1    1    0   
+	0    1    1    0
 $EndComp
 $Comp
 L R R9
@@ -665,7 +665,7 @@ F 1 "1k" V 6757 4301 40  0000 C CNN
 F 2 "Resistors_SMD:R_0805_HandSoldering" V 6680 4300 30  0000 C CNN
 F 3 "~" H 6750 4300 30  0000 C CNN
 	1    6750 4300
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 $Comp
 L GND #PWR16
@@ -676,7 +676,7 @@ F 1 "GND" H 6750 5480 30  0001 C CNN
 F 2 "" H 6750 5550 60  0000 C CNN
 F 3 "" H 6750 5550 60  0000 C CNN
 	1    6750 5550
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 $Comp
 L LED-RESCUE-cam-chassis D4
@@ -687,7 +687,7 @@ F 1 "light-led" H 10350 3850 50  0000 C CNN
 F 2 "LEDs:LED-5MM" H 10350 3950 60  0000 C CNN
 F 3 "~" H 10350 3950 60  0000 C CNN
 	1    10350 3950
-	0    1    1    0   
+	0    1    1    0
 $EndComp
 $Comp
 L R R20
@@ -698,7 +698,7 @@ F 1 "33" V 10357 3301 40  0000 C CNN
 F 2 "Resistors_SMD:R_0805_HandSoldering" V 10280 3300 30  0000 C CNN
 F 3 "~" H 10350 3300 30  0000 C CNN
 	1    10350 3300
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 $Comp
 L GND #PWR31
@@ -709,7 +709,7 @@ F 1 "GND" H 10350 4330 30  0001 C CNN
 F 2 "" H 10350 4400 60  0000 C CNN
 F 3 "" H 10350 4400 60  0000 C CNN
 	1    10350 4400
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 $Comp
 L LED-RESCUE-cam-chassis D5
@@ -720,7 +720,7 @@ F 1 "light-led" H 10650 3850 50  0000 C CNN
 F 2 "LEDs:LED-5MM" H 10650 3950 60  0000 C CNN
 F 3 "~" H 10650 3950 60  0000 C CNN
 	1    10650 3950
-	0    1    1    0   
+	0    1    1    0
 $EndComp
 $Comp
 L R R21
@@ -731,7 +731,7 @@ F 1 "33" V 10657 3301 40  0000 C CNN
 F 2 "Resistors_SMD:R_0805_HandSoldering" V 10580 3300 30  0000 C CNN
 F 3 "~" H 10650 3300 30  0000 C CNN
 	1    10650 3300
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 $Comp
 L GND #PWR34
@@ -742,7 +742,7 @@ F 1 "GND" H 10650 4330 30  0001 C CNN
 F 2 "" H 10650 4400 60  0000 C CNN
 F 3 "" H 10650 4400 60  0000 C CNN
 	1    10650 4400
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 $Comp
 L LED-RESCUE-cam-chassis D6
@@ -753,7 +753,7 @@ F 1 "light-led" H 10950 3850 50  0000 C CNN
 F 2 "LEDs:LED-5MM" H 10950 3950 60  0000 C CNN
 F 3 "~" H 10950 3950 60  0000 C CNN
 	1    10950 3950
-	0    1    1    0   
+	0    1    1    0
 $EndComp
 $Comp
 L R R22
@@ -764,7 +764,7 @@ F 1 "33" V 10957 3301 40  0000 C CNN
 F 2 "Resistors_SMD:R_0805_HandSoldering" V 10880 3300 30  0000 C CNN
 F 3 "~" H 10950 3300 30  0000 C CNN
 	1    10950 3300
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 $Comp
 L GND #PWR35
@@ -775,7 +775,7 @@ F 1 "GND" H 10950 4330 30  0001 C CNN
 F 2 "" H 10950 4400 60  0000 C CNN
 F 3 "" H 10950 4400 60  0000 C CNN
 	1    10950 4400
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 $Comp
 L MOSFET_P Q7
@@ -786,7 +786,7 @@ F 1 "irlml2244" H 10250 2170 60  0000 R CNN
 F 2 "libs:SOT23GDS" H 10250 2350 60  0000 C CNN
 F 3 "~" H 10250 2350 60  0000 C CNN
 	1    10250 2350
-	1    0    0    1   
+	1    0    0    1
 $EndComp
 $Comp
 L R R17
@@ -797,7 +797,7 @@ F 1 "1k" V 9607 1951 40  0000 C CNN
 F 2 "Resistors_SMD:R_0805_HandSoldering" V 9530 1950 30  0000 C CNN
 F 3 "~" H 9600 1950 30  0000 C CNN
 	1    9600 1950
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 $Comp
 L NPN Q6
@@ -808,7 +808,7 @@ F 1 "NPN" H 9500 2800 50  0000 R CNN
 F 2 "Housings_SOT-23_SOT-143_TSOT-6:SOT-23" H 9500 2650 60  0000 C CNN
 F 3 "~" H 9500 2650 60  0000 C CNN
 	1    9500 2650
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 $Comp
 L R R11
@@ -819,7 +819,7 @@ F 1 "1k" V 8607 2651 40  0000 C CNN
 F 2 "Resistors_SMD:R_0805_HandSoldering" V 8530 2650 30  0000 C CNN
 F 3 "~" H 8600 2650 30  0000 C CNN
 	1    8600 2650
-	0    -1   -1   0   
+	0    -1   -1   0
 $EndComp
 $Comp
 L R R15
@@ -830,7 +830,7 @@ F 1 "30k" V 9007 3051 40  0000 C CNN
 F 2 "Resistors_SMD:R_0805_HandSoldering" V 8930 3050 30  0000 C CNN
 F 3 "~" H 9000 3050 30  0000 C CNN
 	1    9000 3050
-	-1   0    0    1   
+	-1   0    0    1
 $EndComp
 $Comp
 L GND #PWR23
@@ -841,7 +841,7 @@ F 1 "GND" H 9000 3430 30  0001 C CNN
 F 2 "" H 9000 3500 60  0000 C CNN
 F 3 "" H 9000 3500 60  0000 C CNN
 	1    9000 3500
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 $Comp
 L GND #PWR27
@@ -852,7 +852,7 @@ F 1 "GND" H 9600 3430 30  0001 C CNN
 F 2 "" H 9600 3500 60  0000 C CNN
 F 3 "" H 9600 3500 60  0000 C CNN
 	1    9600 3500
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 Text Label 6750 3950 1    60   ~ 0
 dbg-led
@@ -865,7 +865,7 @@ F 1 "pyro" V 8300 2050 40  0000 C CNN
 F 2 "Pin_Headers:Pin_Header_Straight_1x03" H 8250 2050 60  0001 C CNN
 F 3 "" H 8250 2050 60  0000 C CNN
 	1    8250 2050
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 $Comp
 L GND #PWR22
@@ -876,7 +876,7 @@ F 1 "GND" H 7800 2180 30  0001 C CNN
 F 2 "" H 7800 2250 60  0000 C CNN
 F 3 "" H 7800 2250 60  0000 C CNN
 	1    7800 2250
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 Text Label 7400 2050 0    60   ~ 0
 pyro-sen
@@ -889,7 +889,7 @@ F 1 "VCC" H 7650 1850 30  0000 C CNN
 F 2 "" H 7650 1750 60  0000 C CNN
 F 3 "" H 7650 1750 60  0000 C CNN
 	1    7650 1750
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 Text Label 6450 1150 0    60   ~ 0
 d-
@@ -912,7 +912,7 @@ F 1 "TST" H 7200 4150 30  0000 C CNN
 F 2 "Pin_Headers:Pin_Header_Straight_1x01" H 7200 3900 60  0000 C CNN
 F 3 "~" H 7200 3900 60  0000 C CNN
 	1    7200 3900
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 $Comp
 L VCC #PWR17
@@ -923,7 +923,7 @@ F 1 "VCC" H 7100 4150 30  0000 C CNN
 F 2 "" H 7100 4050 60  0000 C CNN
 F 3 "" H 7100 4050 60  0000 C CNN
 	1    7100 4050
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 $Comp
 L TST P2
@@ -934,7 +934,7 @@ F 1 "TST" H 7400 4150 30  0000 C CNN
 F 2 "Pin_Headers:Pin_Header_Straight_1x01" H 7400 3900 60  0000 C CNN
 F 3 "~" H 7400 3900 60  0000 C CNN
 	1    7400 3900
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 $Comp
 L GND #PWR18
@@ -945,7 +945,7 @@ F 1 "GND" H 7400 4030 30  0001 C CNN
 F 2 "" H 7400 4100 60  0000 C CNN
 F 3 "" H 7400 4100 60  0000 C CNN
 	1    7400 4100
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 $Comp
 L TST P3
@@ -956,7 +956,7 @@ F 1 "TST" H 7600 4150 30  0000 C CNN
 F 2 "Pin_Headers:Pin_Header_Straight_1x01" H 7600 3900 60  0000 C CNN
 F 3 "~" H 7600 3900 60  0000 C CNN
 	1    7600 3900
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 Text Label 7600 4050 1    60   ~ 0
 rst
@@ -969,7 +969,7 @@ F 1 "TST" H 7800 4150 30  0000 C CNN
 F 2 "Pin_Headers:Pin_Header_Straight_1x01" H 7800 3900 60  0000 C CNN
 F 3 "~" H 7800 3900 60  0000 C CNN
 	1    7800 3900
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 Text Label 7800 4050 1    60   ~ 0
 sck
@@ -982,7 +982,7 @@ F 1 "TST" H 8000 4150 30  0000 C CNN
 F 2 "Pin_Headers:Pin_Header_Straight_1x01" H 8000 3900 60  0000 C CNN
 F 3 "~" H 8000 3900 60  0000 C CNN
 	1    8000 3900
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 Text Label 8000 4050 1    60   ~ 0
 miso
@@ -995,7 +995,7 @@ F 1 "TST" H 8200 4150 30  0000 C CNN
 F 2 "Pin_Headers:Pin_Header_Straight_1x01" H 8200 3900 60  0000 C CNN
 F 3 "~" H 8200 3900 60  0000 C CNN
 	1    8200 3900
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 Text Label 8200 4050 1    60   ~ 0
 mosi
@@ -1008,7 +1008,7 @@ F 1 "PWR_FLAG" H 3650 5280 30  0000 C CNN
 F 2 "" H 3650 5100 60  0000 C CNN
 F 3 "" H 3650 5100 60  0000 C CNN
 	1    3650 5100
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 $Comp
 L PWR_FLAG #FLG3
@@ -1019,7 +1019,7 @@ F 1 "PWR_FLAG" H 10200 4980 30  0000 C CNN
 F 2 "" H 10200 4800 60  0000 C CNN
 F 3 "" H 10200 4800 60  0000 C CNN
 	1    10200 4800
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 Text Label 6100 2150 0    60   ~ 0
 pyro-sen
@@ -1040,7 +1040,7 @@ F 1 "VCC" H 9600 1550 30  0000 C CNN
 F 2 "" H 9600 1450 60  0000 C CNN
 F 3 "" H 9600 1450 60  0000 C CNN
 	1    9600 1450
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 $Comp
 L VCC #PWR30
@@ -1051,7 +1051,7 @@ F 1 "VCC" H 10350 2050 30  0000 C CNN
 F 2 "" H 10350 1950 60  0000 C CNN
 F 3 "" H 10350 1950 60  0000 C CNN
 	1    10350 1950
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 $Comp
 L PWR_FLAG #FLG2
@@ -1062,7 +1062,7 @@ F 1 "PWR_FLAG" H 9850 5080 30  0000 C CNN
 F 2 "" H 9850 4900 60  0000 C CNN
 F 3 "" H 9850 4900 60  0000 C CNN
 	1    9850 4900
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 Text Label 2800 2550 0    60   ~ 0
 mcu-vcc
@@ -1091,7 +1091,7 @@ Connection ~ 1100 2150
 Wire Wire Line
 	1100 950  1100 1200
 Wire Wire Line
-	1100 950  700  950 
+	1100 950  700  950
 Wire Wire Line
 	700  950  700  1150
 Wire Wire Line
@@ -1107,15 +1107,15 @@ Wire Wire Line
 Wire Wire Line
 	4000 1550 4000 1650
 Wire Wire Line
-	4950 850  4950 550 
+	4950 850  4950 550
 Wire Wire Line
-	5050 850  5050 550 
+	5050 850  5050 550
 Wire Wire Line
 	2200 1250 2200 1600
 Wire Wire Line
 	2200 1900 2200 2150
 Wire Wire Line
-	2200 650  2200 950 
+	2200 650  2200 950
 Wire Wire Line
 	2200 1450 2500 1450
 Connection ~ 2200 1450
@@ -1221,13 +1221,13 @@ Wire Wire Line
 Wire Wire Line
 	9650 5550 9650 4900
 Wire Wire Line
-	8600 900  8200 900 
+	8600 900  8200 900
 Wire Wire Line
 	8600 1000 8200 1000
 Wire Wire Line
 	8100 1100 8600 1100
 Wire Wire Line
-	9400 900  9800 900 
+	9400 900  9800 900
 Wire Wire Line
 	9800 1000 9400 1000
 Wire Wire Line
@@ -1402,7 +1402,7 @@ F 1 "Crystal" H 1100 1750 50  0000 C CNN
 F 2 "Crystals:Crystal_HC49-U_Vertical" H 1100 1900 60  0001 C CNN
 F 3 "" H 1100 1900 60  0000 C CNN
 	1    1100 1900
-	0    1    1    0   
+	0    1    1    0
 $EndComp
 $Comp
 L MINI-USB-B-4-bases U1
@@ -1413,6 +1413,6 @@ F 1 "MINI-USB-B-4-bases" H 10400 5800 60  0000 C CNN
 F 2 "" H 10400 5950 60  0000 C CNN
 F 3 "" H 10400 5950 60  0000 C CNN
 	1    10400 5950
-	0    -1   1    0   
+	0    -1   1    0
 $EndComp
 $EndSCHEMATC

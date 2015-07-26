@@ -50,7 +50,7 @@
 ## The directory for keeping all the keys/etc. By default, we store
 ## things in $HOME/.tor on Unix, and in Application Data\tor on Windows.
 #DataDirectory @LOCALSTATEDIR@/lib/tor
-DataDirectory ./tor-cfg
+DataDirectory ./tor.cfg
 
 ## The port on which Tor will listen for local connections from Tor
 ## controller applications, as documented in control-spec.txt.
@@ -72,7 +72,7 @@ DataDirectory ./tor-cfg
 #HiddenServiceDir @LOCALSTATEDIR@/lib/tor/hidden_service/
 #HiddenServicePort 80 127.0.0.1:80
 #HiddenServiceDir {servicedir}
-#HiddenServicePort {port} {host}:{port}
+#HiddenServicePort 80 {host}:{port}
 
 #HiddenServiceDir @LOCALSTATEDIR@/lib/tor/other_hidden_service/
 #HiddenServicePort 80 127.0.0.1:80

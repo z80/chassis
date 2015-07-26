@@ -21,6 +21,7 @@
         <file>res/styles/bootstrap.css.map</file>
         <file>res/styles/bootstrap-theme.min.css</file>
         <file>res/index.html</file>
+        <file>res/scripts.js</file>
         <file>res/icon-dark.png</file>
         <file>res/icon-white.png</file>
         <file>res/config.ini</file>

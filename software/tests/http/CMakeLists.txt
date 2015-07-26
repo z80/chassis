@@ -6,7 +6,10 @@ if ( USE_OPENCV )
 endif ( USE_OPENCV )
 
 find_package( Qt4 )
-set( QT_USE_QTCORE     True )
+if ( WIN32 )
+    set( QT_USE_QTMAIN     True )
+endif ( WIN32 )
+set( QT_USE_QTGUI      True )
 set( QT_USE_QTNETWORK  True )
 set( QT_USE_QTXML      True )
 include( ${QT_USE_FILE} )
@@ -30,9 +33,23 @@ endif ( USE_OPENCV )
 
 
 file( GLOB src     "./src/*.cpp" )
+file( GLOB win_src "./src/windows/*.cpp" )
+file( GLOB lin_src "./src/linux/*.cpp" )
 file( GLOB headers "./src/*.h" )
+file( GLOB win_headers "./src/windows/*.h" )
+file( GLOB lin_headers "./src/linux/*.h" )
 file( GLOB ui      "./src/*.ui" )
 file( GLOB qrc     "./src/*.qrc" )
+if ( WIN32 )
+    set( src ${src} ${win_src} )
+    set( headers ${headers} ${win_headers} )
+    include_directories( "./src/windows"
+                         "${ROOT}/video_input/src" )
+else ( WIN32 )
+    set( src ${src} ${lin_src} )
+    set( headers ${headers} ${lin_headers} )
+    include_directories( "./src/linux" )
+endif ( WIN32 )
 #message( STATUS "SRC = ${src}" )
 #message( STATUS "HEADERS = ${headers}" )
 
@@ -45,14 +62,28 @@ set( src ${src} ${uiSrc} )
 QT4_ADD_RESOURCES( qrcSrc ${qrc} )
 set( src ${src} ${qrcSrc} )
 
-add_executable( ${PROJ_NAME} ${src} )
-set( libs qxmpp
-          ${QT_LIBRARIES} )
+if ( WIN32 )
+    list( APPEND src "./src/icon.rc" )
+    set( BLD_TYPE WIN32 )
+else ( WIN32 )
+	set( BLD_TYPE "" )
+endif ( WIN32 )
+
+
+
+add_executable( ${PROJ_NAME} ${BLD_TYPE} ${src} )
+set( libs ${QT_LIBRARIES} common )
 if ( USE_OPENCV )
     set( libs ${libs} ${OpenCV_LIBS} )
 endif ( USE_OPENCV )
 
-target_link_libraries( ${PROJ_NAME} ${libs} qxmpp xmpp_io common qtwebapp )
+if ( WIN32 )
+    include( "./win32_opencv.cmake" )
+    set( libs ${libs} videoInput )
+endif ( WIN32 )
+
+
+
+target_link_libraries( ${PROJ_NAME} ${libs} qtwebapp ${QT_LIBRARIES} )
 install( TARGETS ${PROJ_NAME} DESTINATION "./" )
-install( FILES "./etc/Demo2.ini" DESTINATION "./" )
 

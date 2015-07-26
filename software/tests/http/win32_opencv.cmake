@@ -1,7 +1,4 @@
 
-set( OPENCV_PATH  "c:/projects/gui_git/gui/3dparty/opencv" )
-set( PL_SDK       "c:/projects/gui_git/gui/3dparty/platformsdk/Windows/v7.0" )
-
 include_directories( 
     "${OPENCV_PATH}/include" 
                    )

@@ -145,7 +145,7 @@ bool QtServiceController::isInstalled() const
     SC_HANDLE hSCM = pOpenSCManager(0, 0, 0);
     if (hSCM) {
         // Try to open the service
-        SC_HANDLE hService = pOpenService(hSCM, (wchar_t*)d->serviceName.utf16(),
+        SC_HANDLE hService = pOpenService(hSCM, (char*)d->serviceName.toUtf8().data(),
                                           SERVICE_QUERY_CONFIG);
 
         if (hService) {
@@ -168,7 +168,7 @@ bool QtServiceController::isRunning() const
     SC_HANDLE hSCM = pOpenSCManager(0, 0, 0);
     if (hSCM) {
         // Try to open the service
-        SC_HANDLE hService = pOpenService(hSCM, (wchar_t *)d->serviceName.utf16(),
+        SC_HANDLE hService = pOpenService(hSCM, (char *)d->serviceName.toUtf8().data(),
                                           SERVICE_QUERY_STATUS);
         if (hService) {
             SERVICE_STATUS info;
@@ -194,7 +194,7 @@ QString QtServiceController::serviceFilePath() const
     SC_HANDLE hSCM = pOpenSCManager(0, 0, 0);
     if (hSCM) {
         // Try to open the service
-        SC_HANDLE hService = pOpenService(hSCM, (wchar_t *)d->serviceName.utf16(),
+        SC_HANDLE hService = pOpenService(hSCM, (char *)d->serviceName.toUtf8().data(),
                                           SERVICE_QUERY_CONFIG);
         if (hService) {
             DWORD sizeNeeded = 0;
@@ -221,7 +221,7 @@ QString QtServiceController::serviceDescription() const
     SC_HANDLE hSCM = pOpenSCManager(0, 0, 0);
     if (hSCM) {
         // Try to open the service
-        SC_HANDLE hService = pOpenService(hSCM, (wchar_t *)d->serviceName.utf16(),
+        SC_HANDLE hService = pOpenService(hSCM, (char *)d->serviceName.toUtf8().data(),
              SERVICE_QUERY_CONFIG);
         if (hService) {
             DWORD dwBytesNeeded;
@@ -254,7 +254,7 @@ QtServiceController::StartupType QtServiceController::startupType() const
     SC_HANDLE hSCM = pOpenSCManager(0, 0, 0);
     if (hSCM) {
         // Try to open the service
-        SC_HANDLE hService = pOpenService(hSCM, (wchar_t *)d->serviceName.utf16(),
+        SC_HANDLE hService = pOpenService(hSCM, (char *)d->serviceName.toUtf8().data(),
                                           SERVICE_QUERY_CONFIG);
         if (hService) {
             DWORD sizeNeeded = 0;
@@ -281,7 +281,7 @@ bool QtServiceController::uninstall()
     SC_HANDLE hSCM = pOpenSCManager(0, 0, SC_MANAGER_ALL_ACCESS);
     if (hSCM) {
         // Try to open the service
-        SC_HANDLE hService = pOpenService(hSCM, (wchar_t *)d->serviceName.utf16(), DELETE);
+        SC_HANDLE hService = pOpenService(hSCM, (char *)d->serviceName.toUtf8().data(), DELETE);
         if (hService) {
             if (pDeleteService(hService))
                 result = true;
@@ -303,7 +303,7 @@ bool QtServiceController::start(const QStringList &args)
     SC_HANDLE hSCM = pOpenSCManager(0, 0, SC_MANAGER_CONNECT);
     if (hSCM) {
         // Try to open the service
-        SC_HANDLE hService = pOpenService(hSCM, (wchar_t *)d->serviceName.utf16(), SERVICE_START);
+        SC_HANDLE hService = pOpenService(hSCM, (char *)d->serviceName.toUtf8().data(), SERVICE_START);
         if (hService) {
             QVector<const wchar_t *> argv(args.size());
             for (int i = 0; i < args.size(); ++i)
@@ -327,7 +327,7 @@ bool QtServiceController::stop()
 
     SC_HANDLE hSCM = pOpenSCManager(0, 0, SC_MANAGER_CONNECT);
     if (hSCM) {
-        SC_HANDLE hService = pOpenService(hSCM, (wchar_t *)d->serviceName.utf16(), SERVICE_STOP|SERVICE_QUERY_STATUS);
+        SC_HANDLE hService = pOpenService(hSCM, (char *)d->serviceName.toUtf8().data(), SERVICE_STOP|SERVICE_QUERY_STATUS);
         if (hService) {
             SERVICE_STATUS status;
             if (pControlService(hService, SERVICE_CONTROL_STOP, &status)) {
@@ -360,7 +360,7 @@ bool QtServiceController::pause()
 
     SC_HANDLE hSCM = pOpenSCManager(0, 0, SC_MANAGER_CONNECT);
     if (hSCM) {
-        SC_HANDLE hService = pOpenService(hSCM, (wchar_t *)d->serviceName.utf16(),
+        SC_HANDLE hService = pOpenService(hSCM, (char *)d->serviceName.toUtf8().data(),
                              SERVICE_PAUSE_CONTINUE);
         if (hService) {
             SERVICE_STATUS status;
@@ -382,7 +382,7 @@ bool QtServiceController::resume()
 
     SC_HANDLE hSCM = pOpenSCManager(0, 0, SC_MANAGER_CONNECT);
     if (hSCM) {
-        SC_HANDLE hService = pOpenService(hSCM, (wchar_t *)d->serviceName.utf16(),
+        SC_HANDLE hService = pOpenService(hSCM, (char *)d->serviceName.toUtf8().data(),
                              SERVICE_PAUSE_CONTINUE);
         if (hService) {
             SERVICE_STATUS status;
@@ -407,7 +407,7 @@ bool QtServiceController::sendCommand(int code)
 
     SC_HANDLE hSCM = pOpenSCManager(0, 0, SC_MANAGER_CONNECT);
     if (hSCM) {
-        SC_HANDLE hService = pOpenService(hSCM, (wchar_t *)d->serviceName.utf16(),
+        SC_HANDLE hService = pOpenService(hSCM, (char *)d->serviceName.toUtf8().data(),
                                           SERVICE_USER_DEFINED_CONTROL);
         if (hService) {
             SERVICE_STATUS status;
@@ -450,7 +450,7 @@ void QtServiceBase::logMessage(const QString &message, MessageType type,
     case Information: wType = EVENTLOG_INFORMATION_TYPE; break;
     default: wType = EVENTLOG_SUCCESS; break;
     }
-    HANDLE h = pRegisterEventSource(0, (wchar_t *)d->controller.serviceName().utf16());
+    HANDLE h = pRegisterEventSource(0, (char *)d->serviceName().toUtf8().data());
     if (h) {
         const wchar_t *msg = (wchar_t*)message.utf16();
         const char *bindata = data.size() ? data.constData() : 0;
