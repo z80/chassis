@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1438231806 source:/home/z80/projects/chassis.git/firmware/project_files/chassis-atmega8/chassis/fuse.c
+	<avr/io.h>
+
+1438231806 source:/home/z80/projects/chassis.git/firmware/project_files/chassis-atmega8/chassis/main.c
+	<avr/io.h>
+
+1345631777 source:/home/z80/projects/chassis.git/firmware/src/dbg.c
+	"dbg.h"
+	<avr/io.h>
+
+1345631777 /home/z80/projects/chassis.git/firmware/src/dbg.h
+
