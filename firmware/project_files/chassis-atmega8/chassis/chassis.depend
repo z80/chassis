@@ -11,3 +11,49 @@
 
 1345631777 /home/z80/projects/chassis.git/firmware/src/dbg.h
 
+1345631777 source:/home/z80/projects/chassis.git/firmware/src/cpu_io.c
+	"cpu_io.h"
+	"funcs.h"
+	"dbg.h"
+
+1438235400 /home/z80/projects/chassis.git/firmware/src/cpu_io.h
+	<avr/io.h>
+	<avr/interrupt.h>
+	<avr/wdt.h>
+	<util/delay.h>
+	"./pgmspace.h"
+	"./usbdrv.h"
+
+1438235066 /home/z80/projects/chassis.git/firmware/src/pgmspace.h
+	<avr/io.h>
+	<avr/pgmspace.h>
+	"inttypes.h"
+	<stddef.h>
+	<avr/io.h>
+
+1438234989 /home/z80/projects/chassis.git/firmware/src/inttypes.h
+	<stdint.h>
+	<inttypes.h>
+
+1354788992 /home/z80/projects/chassis.git/firmware/usbdrv/usbdrv.h
+	"usbconfig.h"
+	"usbportability.h"
+
+1345631777 /home/z80/projects/chassis.git/firmware/project_files/chassis-atmega8/chassis//usbconfig.h
+
+1354788992 /home/z80/projects/chassis.git/firmware/usbdrv/usbportability.h
+	<ioavr.h>
+	<inavr.h>
+	<io.h>
+	<delay.h>
+	<avr/io.h>
+	<avr/pgmspace.h>
+
+1438235324 /home/z80/projects/chassis.git/firmware/src/funcs.h
+	<avr/io.h>
+	<avr/interrupt.h>
+	<avr/wdt.h>
+	<util/delay.h>
+	"./pgmspace.h"
+	"usbdrv.h"
+

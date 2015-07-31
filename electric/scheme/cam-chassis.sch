@@ -223,7 +223,7 @@ F 3 "" H 5000 4150 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 Text Label 6200 2950 0    60   ~ 0
-d-
+d+
 Text Label 6450 1250 0    60   ~ 0
 d+
 $Comp
