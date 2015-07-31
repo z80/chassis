@@ -54,6 +54,12 @@
 #define FUNC_SET_EEPROM_PARAM 5
 #define FUNC_EEPROM_PARAM     6
 
+#define FUNC_SET_DBG_LED      7
+#define FUNC_SET_LED          8
+#define FUNC_SET_PWR          9
+#define FUNC_SET_PWM_EN       10
+#define FUNC_SET_PWM          11
+
 #endif
 
 

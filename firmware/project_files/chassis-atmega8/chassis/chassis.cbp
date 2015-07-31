@@ -58,6 +58,7 @@
 			<Add after="avr-objcopy --no-change-warnings -j .signature --change-section-lma .signature=0 -O binary $(TARGET_OUTPUT_FILE) $(TARGET_OUTPUT_DIR)$(TARGET_OUTPUT_BASENAME).sig" />
 			<Add after="avr-objcopy --no-change-warnings -j .fuse --change-section-lma .fuse=0 -O binary $(TARGET_OUTPUT_FILE) $(TARGET_OUTPUT_DIR)$(TARGET_OUTPUT_BASENAME).fuse" />
 		</ExtraCommands>
+		<Unit filename="../../../src/config.h" />
 		<Unit filename="../../../src/cpu_io.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -84,12 +85,7 @@
 		</Unit>
 		<Unit filename="../../../usbdrv/usbdrv.h" />
 		<Unit filename="../../../usbdrv/usbdrvasm.S" />
-		<Unit filename="fuse.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="main.c">
-			<Option compilerVar="CC" />
-		</Unit>
+		<Unit filename="usbconfig.h" />
 		<Extensions>
 			<code_completion />
 			<debugger />

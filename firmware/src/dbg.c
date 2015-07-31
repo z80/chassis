@@ -4,53 +4,32 @@
 
 #define LED_PORT PORTD
 #define LED_DDR  DDRD
-#define LED0     (1<<0)
-#define LED1     (1<<1)
+#define LED_PAD  (1<<4)
+#define DBG_LED_PAD  (1<<3)
 
 void initLeds( void )
 {
-    #ifdef DEBUG_LEDS_ATMEGA8
-        LED_DDR  |= LED0 | LED1;
-        LED_PORT |= 0b00000000;
-    #endif
+    LED_DDR  |= LED_PAD | DBG_LED_PAD;
+    LED_PORT |= 0b00000000;
 }
 
-void setLeds( unsigned char val )
+void setDbgLed( unsigned char val )
 {
-    #ifdef DEBUG_LEDS_ATMEGA8
-        LED_PORT = (LED_PORT & (~(LED0|LED1))) | val;
-    #endif
+    LED_PORT = (LED_PORT & (~(DBG_LED_PAD))) | val;
 }
 
-void setLed0( unsigned char val )
+void setLed( unsigned char val )
 {
-    #ifdef DEBUG_LEDS_ATMEGA8
-        LED_PORT = (LED_PORT & (~(LED0))) | val;
-    #endif
+    LED_PORT = (LED_PORT & (~(LED_PAD))) | val;
 }
 
-void setLed1( unsigned char val )
+void blinkDbgLed( void )
 {
-    #ifdef DEBUG_LEDS_ATMEGA8
-        LED_PORT = (LED_PORT & (~(LED1))) | val;
-    #endif
+    uint8_t led = (LED_PORT & DBG_LED_PAD) ? 0 : DBG_LED_PAD;
+    LED_PORT = (LED_PORT & (~(DBG_LED_PAD))) | led;
 }
 
-void blinkLed0( void )
-{
-    #ifdef DEBUG_LEDS_ATMEGA8
-        uint8_t led = (LED_PORT & LED0) ? 0 : LED0;
-        LED_PORT = (LED_PORT & (~(LED0))) | led;
-    #endif
-}
 
-void blinkLed1( void )
-{
-    #ifdef DEBUG_LEDS_ATMEGA8
-        uint8_t led = (LED_PORT & LED1) ? 0 : LED1;
-        LED_PORT = (LED_PORT & (~(LED1))) | led;
-    #endif
-}
 
 
 

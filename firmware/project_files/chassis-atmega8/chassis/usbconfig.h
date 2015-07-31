@@ -87,7 +87,7 @@ the newest features and options.
 /* Define this to 1 if the device has its own power supply. Set it to 0 if the
  * device is powered from the USB bus.
  */
-#define USB_CFG_MAX_BUS_POWER           20
+#define USB_CFG_MAX_BUS_POWER           400
 /* Set this variable to the maximum USB bus power consumption of your device.
  * The value is in milliamperes. [It will be divided by two since USB
  * communicates power requirements in units of 2 mA.]
@@ -142,8 +142,8 @@ the newest features and options.
 #define USB_CFG_DEVICE_VERSION  0x00, 0x01
 /* Version number of the device: Minor number first, then major number.
  */
-#define USB_CFG_VENDOR_NAME     't', 'r', 'a', 'n', 's', 'm', 'a', 'g', 'n', 'e', 't', 'i', 'c', 's'
-#define USB_CFG_VENDOR_NAME_LEN 14
+#define USB_CFG_VENDOR_NAME     'z', '8', '0'
+#define USB_CFG_VENDOR_NAME_LEN 3
 /* These two values define the vendor name returned by the USB device. The name
  * must be given as a list of characters under single quotes. The characters
  * are interpreted as Unicode (UTF-16) entities.
@@ -152,8 +152,8 @@ the newest features and options.
  * obdev's free shared VID/PID pair. See the file USBID-License.txt for
  * details.
  */
-#define USB_CFG_DEVICE_NAME     'b', 'r', 'u', 's', 'h', 'l', 'e', 's', 's', '_', 'm', 'o', 't', 'o', 'r'
-#define USB_CFG_DEVICE_NAME_LEN 15
+#define USB_CFG_DEVICE_NAME     'c', 'a', 'm', '.', 'c', 'h', 'a', 's', 's', 'i', 's'
+#define USB_CFG_DEVICE_NAME_LEN 11
 /* Same as above for the device name. If you don't want a device name, undefine
  * the macros. See the file USBID-License.txt before you assign a name.
  */

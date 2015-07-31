@@ -12,15 +12,24 @@ uchar g_eepromParams[ EEP_SZ ];
 
 static void version( uchar * io );
 static void firmware( uchar * io );
+/*
 static void setParam( uchar * io );
 static void param( uchar * io );
 static void setEepromParam( uchar * io );
 static void eepromParam( uchar * io );
+*/
+
+static void set_DbgLed( uchar * io );
+static void set_Led( uchar * io );
+static void set_Pwr( uchar * io );
+static void set_PwmEn( uchar * io );
+static void set_Pwm( uchar * io );
 
 void invoke( uchar id, uchar * io )
 {
     switch ( id )
     {
+    /*
     case FUNC_SET_PARAM:
         setParam( io );
         break;
@@ -33,11 +42,28 @@ void invoke( uchar id, uchar * io )
     case FUNC_EEPROM_PARAM:
         eepromParam( io );
         break;
+    */
+
     case FUNC_FIRMWARE:
         firmware( io );
         break;
     case FUNC_VERSION:
         version( io );
+        break;
+    case FUNC_SET_DBG_LED:
+        set_DbgLed( io );
+        break;
+    case FUNC_SET_LED:
+        set_Led( io );
+        break;
+    case FUNC_SET_PWR:
+        set_Pwr( io );
+        break;
+    case FUNC_SET_PWM_EN:
+        set_PwmEn( io );
+        break;
+    case FUNC_SET_PWM:
+        set_Pwm( io );
         break;
     }
 }
@@ -64,6 +90,7 @@ static void firmware( uchar * io )
     } while ( ( ver[i] != '\0' ) && ( i < maxLen ) );
 }
 
+/*
 static void setParam( uchar * io )
 {
     blinkLed0();
@@ -101,6 +128,33 @@ static void eepromParam( uchar * io )
     for ( i=0; i<sz; i++ )
         io[i] = g_eepromParams[ at+i ];
 }
+*/
+
+static void set_DbgLed( uchar * io )
+{
+    setDbgLed( io[0] );
+}
+
+static void set_Led( uchar * io )
+{
+    setLed( io[0] );
+}
+
+static void set_Pwr( uchar * io )
+{
+
+}
+
+static void set_PwmEn( uchar * io )
+{
+
+}
+
+static void set_Pwm( uchar * io )
+{
+
+}
+
 
 
 

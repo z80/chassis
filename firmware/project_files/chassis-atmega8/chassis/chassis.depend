@@ -11,7 +11,7 @@
 
 1345631777 /home/z80/projects/chassis.git/firmware/src/dbg.h
 
-1345631777 source:/home/z80/projects/chassis.git/firmware/src/cpu_io.c
+1438323103 source:/home/z80/projects/chassis.git/firmware/src/cpu_io.c
 	"cpu_io.h"
 	"funcs.h"
 	"dbg.h"
@@ -39,7 +39,7 @@
 	"usbconfig.h"
 	"usbportability.h"
 
-1345631777 /home/z80/projects/chassis.git/firmware/project_files/chassis-atmega8/chassis//usbconfig.h
+1438323381 /home/z80/projects/chassis.git/firmware/project_files/chassis-atmega8/chassis//usbconfig.h
 
 1354788992 /home/z80/projects/chassis.git/firmware/usbdrv/usbportability.h
 	<ioavr.h>
@@ -56,4 +56,66 @@
 	<util/delay.h>
 	"./pgmspace.h"
 	"usbdrv.h"
+
+1438322306 source:/home/z80/projects/chassis.git/firmware/src/funcs.c
+	"funcs.h"
+	"config.h"
+	"dbg.h"
+
+1345631777 /home/z80/projects/chassis.git/firmware/src/config.h
+
+1438235257 source:/home/z80/projects/chassis.git/firmware/src/main.c
+	<avr/io.h>
+	<avr/interrupt.h>
+	<avr/wdt.h>
+	<util/delay.h>
+	"./pgmspace.h"
+	"usbdrv.h"
+	"cpu_io.h"
+	"dbg.h"
+
+1354788992 source:/home/z80/projects/chassis.git/firmware/usbdrv/oddebug.c
+	"oddebug.h"
+
+1354788992 /home/z80/projects/chassis.git/firmware/usbdrv/oddebug.h
+	"usbportability.h"
+
+1354788992 source:/home/z80/projects/chassis.git/firmware/usbdrv/usbdrv.c
+	"usbdrv.h"
+	"oddebug.h"
+
+1354788992 source:/home/z80/projects/chassis.git/firmware/usbdrv/usbdrvasm.S
+	"usbportability.h"
+	"usbdrv.h"
+	"usbdrvasm18-crc.inc"
+	"usbdrvasm12.inc"
+	"usbdrvasm128.inc"
+	"usbdrvasm15.inc"
+	"usbdrvasm16.inc"
+	"usbdrvasm165.inc"
+	"usbdrvasm20.inc"
+
+1354788992 /home/z80/projects/chassis.git/firmware/usbdrv/usbdrvasm18-crc.inc
+	"asmcommon.inc"
+	<stdio.h>
+
+1354788992 /home/z80/projects/chassis.git/firmware/usbdrv/asmcommon.inc
+
+1354788992 /home/z80/projects/chassis.git/firmware/usbdrv/usbdrvasm12.inc
+	"asmcommon.inc"
+
+1354788992 /home/z80/projects/chassis.git/firmware/usbdrv/usbdrvasm128.inc
+	"asmcommon.inc"
+
+1354788992 /home/z80/projects/chassis.git/firmware/usbdrv/usbdrvasm15.inc
+	"asmcommon.inc"
+
+1354788992 /home/z80/projects/chassis.git/firmware/usbdrv/usbdrvasm16.inc
+	"asmcommon.inc"
+
+1354788992 /home/z80/projects/chassis.git/firmware/usbdrv/usbdrvasm165.inc
+	"asmcommon.inc"
+
+1354788992 /home/z80/projects/chassis.git/firmware/usbdrv/usbdrvasm20.inc
+	"asmcommon.inc"
 
