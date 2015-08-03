@@ -142,7 +142,7 @@ static void set_Led( uchar * io )
 
 static void set_Pwr( uchar * io )
 {
-
+    setPower( io[0] );
 }
 
 static void set_PwmEn( uchar * io )

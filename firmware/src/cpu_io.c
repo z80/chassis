@@ -3,6 +3,8 @@
 #include "funcs.h"
 #include "dbg.h"
 
+#include "config.h"
+
 #define BUFFER_SZ 32
 
 // Bytes expected
@@ -51,6 +53,9 @@ void cpuIoReset( void )
 
 void cpuIoPush( uchar * in, uchar cnt )
 {
+    if ( ( in[0] == 0 ) && ( in[1] == FUNC_SET_PWR ) )
+        toggleDbgLed();
+
     // IO watchdog reset.
     g_ioWatchdog = 0;
 

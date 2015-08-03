@@ -9,33 +9,14 @@
 #include "cpu_io.h"
 #include "dbg.h"
 
+#include "config.h"
+
 usbMsgLen_t usbFunctionSetup( uchar data[8] );
 
 void __attribute__((noreturn)) main( void )
 {
     cli();
     initLeds();
-
-    /*
-    PORTD = (1<<4) | (1<<3);
-    DDRD  = (1<<4) | (1<<3);
-    PORTC = (1<<1);
-    DDRC  = (1<<1);
-    while ( 1 )
-    {
-        _delay_ms( 5000 );
-        //toggleDbgLed();
-        //setLed( 1 );
-        PORTD = (1<<4) | (1<<3);
-        PORTC = (1<<1);
-
-        _delay_ms( 5000 );
-        //toggleDbgLed();
-        //setLed( 0 );
-        PORTD &= ~((1<<4) | (1<<3));
-        PORTC &= ~((1<<1));
-    }
-    */
 
     wdt_enable( WDTO_1S );
 
@@ -53,7 +34,6 @@ void __attribute__((noreturn)) main( void )
     usbDeviceConnect();
     sei();
 
-    setDbgLed( 0 );
     for ( ;; )
     {
         // main event loop
@@ -94,8 +74,8 @@ uchar usbFunctionRead(uchar *data, uchar len)
 
 uchar usbFunctionWrite( uchar *data, uchar len )
 {
-    if ( ( data[0] == 0 ) /*&& ( data[1] == FUNC_SET_PWR )*/ )
-        toggleDbgLed();
+    //if ( ( data[0] == 0 ) && ( data[1] == FUNC_SET_PWR ) )
+    //    toggleDbgLed();
     cpuIoPush( data, len );
     return 1;
 }

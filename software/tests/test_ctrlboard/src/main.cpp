@@ -19,9 +19,20 @@ int main( int argc, char * argv[] )
     //    return -2;
     
     res = io.setPower( true );
+    res = io.setPower( true );
+    res = io.setPower( true );
+    res = io.setPower( true );
+    res = io.setPower( true );
+    res = io.setPower( true );
+    res = io.setPower( true );
+    res = io.setPower( true );
+    res = io.setPower( true );
+    res = io.setPower( true );
+    res = io.setPower( true );
+
     res = io.setLed( true );
     res = io.setLed( false );
-    res = io.setLed( false );
+    res = io.setPower( false );
 
     io.close();
 
