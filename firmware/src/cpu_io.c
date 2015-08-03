@@ -30,7 +30,9 @@ void cpuIoPoll( void )
         g_ioWatchdog++;
         if ( g_ioWatchdog > IO_WATCHDOG_TOP )
         {
+            // Reset transfer couters.
             cpuIoReset();
+            // Just debugging.
             //blinkLed0();
         }
         cpuIoInit();

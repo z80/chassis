@@ -18,8 +18,12 @@ int main( int argc, char * argv[] )
     //if ( !res )
     //    return -2;
     
-    res = io.setDbgLed( true );
-    res = io.setDbgLed( false );
+    res = io.setPower( true );
+    res = io.setLed( true );
+    res = io.setLed( false );
+    res = io.setLed( false );
+
+    io.close();
 
     return 0;
 }

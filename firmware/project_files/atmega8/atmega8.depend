@@ -1,0 +1,112 @@
+# depslib dependency file v1.0
+1438455151 source:c:\projects\chassis.git\firmware\src\cpu_io.c
+	"cpu_io.h"
+	"funcs.h"
+	"dbg.h"
+
+1438455151 c:\projects\chassis.git\firmware\src\cpu_io.h
+	<avr/io.h>
+	<avr/interrupt.h>
+	<avr/wdt.h>
+	<util/delay.h>
+	"./pgmspace.h"
+	"./usbdrv.h"
+
+1438455151 c:\projects\chassis.git\firmware\src\pgmspace.h
+	<avr/io.h>
+	<avr/pgmspace.h>
+	"inttypes.h"
+	<stddef.h>
+	<avr/io.h>
+
+1438455151 c:\projects\chassis.git\firmware\src\inttypes.h
+	<stdint.h>
+	<inttypes.h>
+
+1438455151 c:\projects\chassis.git\firmware\usbdrv\usbdrv.h
+	"usbconfig.h"
+	"usbportability.h"
+
+1438455151 c:\projects\chassis.git\firmware\src\usbconfig.h
+
+1438455151 c:\projects\chassis.git\firmware\usbdrv\usbportability.h
+	<ioavr.h>
+	<inavr.h>
+	<io.h>
+	<delay.h>
+	<avr/io.h>
+	<avr/pgmspace.h>
+
+1438455151 c:\projects\chassis.git\firmware\src\funcs.h
+	<avr/io.h>
+	<avr/interrupt.h>
+	<avr/wdt.h>
+	<util/delay.h>
+	"./pgmspace.h"
+	"usbdrv.h"
+
+1438558970 c:\projects\chassis.git\firmware\src\dbg.h
+
+1438559473 source:c:\projects\chassis.git\firmware\src\dbg.c
+	"dbg.h"
+	<avr/io.h>
+
+1438455151 source:c:\projects\chassis.git\firmware\src\funcs.c
+	"funcs.h"
+	"config.h"
+	"dbg.h"
+
+1438455151 c:\projects\chassis.git\common\config.h
+
+1438563018 source:c:\projects\chassis.git\firmware\src\main.c
+	<avr/io.h>
+	<avr/interrupt.h>
+	<avr/wdt.h>
+	<util/delay.h>
+	"./pgmspace.h"
+	"usbdrv.h"
+	"cpu_io.h"
+	"dbg.h"
+
+1438455151 source:c:\projects\chassis.git\firmware\usbdrv\usbdrv.c
+	"usbdrv.h"
+	"oddebug.h"
+
+1438455151 c:\projects\chassis.git\firmware\usbdrv\oddebug.h
+	"usbportability.h"
+
+1438455151 source:c:\projects\chassis.git\firmware\usbdrv\usbdrvasm.s
+	"usbportability.h"
+	"usbdrv.h"
+	"usbdrvasm18-crc.inc"
+	"usbdrvasm12.inc"
+	"usbdrvasm128.inc"
+	"usbdrvasm15.inc"
+	"usbdrvasm16.inc"
+	"usbdrvasm165.inc"
+	"usbdrvasm20.inc"
+
+1438455151 c:\projects\chassis.git\firmware\usbdrv\usbdrvasm18-crc.inc
+	"asmcommon.inc"
+	<stdio.h>
+
+1438455151 c:\projects\chassis.git\firmware\usbdrv\asmcommon.inc
+
+1438455151 c:\projects\chassis.git\firmware\usbdrv\usbdrvasm12.inc
+	"asmcommon.inc"
+
+1438455151 c:\projects\chassis.git\firmware\usbdrv\usbdrvasm128.inc
+	"asmcommon.inc"
+
+1438455151 c:\projects\chassis.git\firmware\usbdrv\usbdrvasm15.inc
+	"asmcommon.inc"
+
+1438455151 c:\projects\chassis.git\firmware\usbdrv\usbdrvasm16.inc
+	"asmcommon.inc"
+
+1438455151 c:\projects\chassis.git\firmware\usbdrv\usbdrvasm165.inc
+	"asmcommon.inc"
+
+1438455151 c:\projects\chassis.git\firmware\usbdrv\usbdrvasm20.inc
+	"asmcommon.inc"
+
