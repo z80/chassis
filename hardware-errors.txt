@@ -1,0 +1,2 @@
+- bc847 pins are wrong on footprint.
+- pyroelectric sensor pins should be mirrored. Now it covers light LEDs if attached in the right way.

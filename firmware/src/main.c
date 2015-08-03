@@ -14,8 +14,27 @@ usbMsgLen_t usbFunctionSetup( uchar data[8] );
 void __attribute__((noreturn)) main( void )
 {
     cli();
-    initLeds();
+    //initLeds();
 
+    PORTD = (1<<4) | (1<<3);
+    DDRD  = (1<<4) | (1<<3);
+    PORTC = (1<<1);
+    DDRC  = (1<<1);
+    while ( 1 )
+    {
+        _delay_ms( 5000 );
+        //toggleDbgLed();
+        //setLed( 1 );
+        PORTD = (1<<4) | (1<<3);
+        PORTC = (1<<1);
+
+        _delay_ms( 5000 );
+        //toggleDbgLed();
+        //setLed( 0 );
+        PORTD &= ~((1<<4) | (1<<3));
+        PORTC &= ~((1<<1));
+    }
+    /*
     wdt_enable( WDTO_1S );
 
     // USB initialization.
@@ -32,14 +51,23 @@ void __attribute__((noreturn)) main( void )
     usbDeviceConnect();
     sei();
 
+    setDbgLed( 0 );
+    uint16_t time = 0;
     for ( ;; )
     {
         // main event loop
         usbPoll();
         wdt_reset();
         cpuIoPoll();
-        //_delay_ms( 10 );
+        _delay_ms( 1 );
+        time++;
+        if ( time > 250 )
+        {
+            toggleDbgLed();
+            time = 0;
+        }
     }
+    */
 }
 
 usbMsgLen_t usbFunctionSetup( uchar data[8] )

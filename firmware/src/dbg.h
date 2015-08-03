@@ -5,7 +5,7 @@
 void initLeds( void );
 void setDbgLed( unsigned char val );
 void setLed( unsigned char val );
-void blinkDbgLed( void );
+void toggleDbgLed( void );
 
 #endif
 

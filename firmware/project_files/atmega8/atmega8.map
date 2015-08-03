@@ -1,0 +1,535 @@
+Archive member included because of file (symbol)
+
+c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_exit.o)
+                              c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o (exit)
+c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_copy_data.o)
+                              .objs\src\funcs.o (__do_copy_data)
+c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_clear_bss.o)
+                              .objs\src\cpu_io.o (__do_clear_bss)
+
+Allocating common symbols
+Common symbol       size              file
+
+g_ioBuffer          0x20              .objs\src\cpu_io.o
+usbTxBuf            0xb               .objs\usbdrv\usbdrv.o
+g_ramParams         0x80              .objs\src\funcs.o
+g_eepromParams      0x80              .objs\src\funcs.o
+usbDeviceAddr       0x1               .objs\usbdrv\usbdrv.o
+usbRxToken          0x1               .objs\usbdrv\usbdrv.o
+usbInputBufOffset   0x1               .objs\usbdrv\usbdrv.o
+usbMsgPtr           0x2               .objs\usbdrv\usbdrv.o
+usbRxLen            0x1               .objs\usbdrv\usbdrv.o
+usbNewDeviceAddr    0x1               .objs\usbdrv\usbdrv.o
+usbCurrentTok       0x1               .objs\usbdrv\usbdrv.o
+usbConfiguration    0x1               .objs\usbdrv\usbdrv.o
+usbRxBuf            0x16              .objs\usbdrv\usbdrv.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+text             0x00000000         0x00002000         xr
+data             0x00800060         0x0000ffa0         rw !x
+eeprom           0x00810000         0x00010000         rw !x
+fuse             0x00820000         0x00000400         rw !x
+lock             0x00830000         0x00000400         rw !x
+signature        0x00840000         0x00000400         rw !x
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+LOAD .objs\src\cpu_io.o
+LOAD .objs\src\dbg.o
+LOAD .objs\src\funcs.o
+LOAD .objs\src\main.o
+LOAD .objs\usbdrv\usbdrv.o
+LOAD .objs\usbdrv\usbdrvasm.o
+LOAD c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a
+LOAD C:\programs\winavr\20100110\avr\lib\libm.a
+LOAD c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a
+LOAD C:\programs\winavr\20100110\avr\lib\libc.a
+LOAD c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a
+
+.hash
+ *(.hash)
+
+.dynsym
+ *(.dynsym)
+
+.dynstr
+ *(.dynstr)
+
+.gnu.version
+ *(.gnu.version)
+
+.gnu.version_d
+ *(.gnu.version_d)
+
+.gnu.version_r
+ *(.gnu.version_r)
+
+.rel.init
+ *(.rel.init)
+
+.rela.init
+ *(.rela.init)
+
+.rel.text
+ *(.rel.text)
+ *(.rel.text.*)
+ *(.rel.gnu.linkonce.t*)
+
+.rela.text
+ *(.rela.text)
+ *(.rela.text.*)
+ *(.rela.gnu.linkonce.t*)
+
+.rel.fini
+ *(.rel.fini)
+
+.rela.fini
+ *(.rela.fini)
+
+.rel.rodata
+ *(.rel.rodata)
+ *(.rel.rodata.*)
+ *(.rel.gnu.linkonce.r*)
+
+.rela.rodata
+ *(.rela.rodata)
+ *(.rela.rodata.*)
+ *(.rela.gnu.linkonce.r*)
+
+.rel.data
+ *(.rel.data)
+ *(.rel.data.*)
+ *(.rel.gnu.linkonce.d*)
+
+.rela.data
+ *(.rela.data)
+ *(.rela.data.*)
+ *(.rela.gnu.linkonce.d*)
+
+.rel.ctors
+ *(.rel.ctors)
+
+.rela.ctors
+ *(.rela.ctors)
+
+.rel.dtors
+ *(.rel.dtors)
+
+.rela.dtors
+ *(.rela.dtors)
+
+.rel.got
+ *(.rel.got)
+
+.rela.got
+ *(.rela.got)
+
+.rel.bss
+ *(.rel.bss)
+
+.rela.bss
+ *(.rela.bss)
+
+.rel.plt
+ *(.rel.plt)
+
+.rela.plt
+ *(.rela.plt)
+
+.text           0x00000000      0x7dc
+ *(.vectors)
+ .vectors       0x00000000       0x26 c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+                0x00000000                __vectors
+                0x00000000                __vector_default
+ *(.vectors)
+ *(.progmem.gcc*)
+ *(.progmem*)
+ .progmem.data  0x00000026       0x48 .objs\usbdrv\usbdrv.o
+                0x0000004a                usbDescriptorDevice
+                0x00000026                usbDescriptorString0
+                0x0000005c                usbDescriptorConfiguration
+                0x0000002a                usbDescriptorStringVendor
+                0x00000032                usbDescriptorStringDevice
+                0x0000006e                . = ALIGN (0x2)
+                0x0000006e                __trampolines_start = .
+ *(.trampolines)
+ .trampolines   0x0000006e        0x0 linker stubs
+ *(.trampolines*)
+                0x0000006e                __trampolines_end = .
+ *(.jumptables)
+ *(.jumptables*)
+ *(.lowtext)
+ *(.lowtext*)
+                0x0000006e                __ctors_start = .
+ *(.ctors)
+                0x0000006e                __ctors_end = .
+                0x0000006e                __dtors_start = .
+ *(.dtors)
+                0x0000006e                __dtors_end = .
+ SORT(*)(.ctors)
+ SORT(*)(.dtors)
+ *(.init0)
+ .init0         0x0000006e        0x0 c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+                0x0000006e                __init
+ *(.init0)
+ *(.init1)
+ *(.init1)
+ *(.init2)
+ .init2         0x0000006e        0xc c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+ *(.init2)
+ *(.init3)
+ *(.init3)
+ *(.init4)
+ .init4         0x0000007a       0x16 c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_copy_data.o)
+                0x0000007a                __do_copy_data
+ .init4         0x00000090       0x10 c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_clear_bss.o)
+                0x00000090                __do_clear_bss
+ *(.init4)
+ *(.init5)
+ *(.init5)
+ *(.init6)
+ *(.init6)
+ *(.init7)
+ *(.init7)
+ *(.init8)
+ *(.init8)
+ *(.init9)
+ .init9         0x000000a0        0x4 c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+ *(.init9)
+ *(.text)
+ .text          0x000000a4        0x2 c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+                0x000000a4                __vector_12
+                0x000000a4                __bad_interrupt
+                0x000000a4                __vector_6
+                0x000000a4                __vector_3
+                0x000000a4                __vector_11
+                0x000000a4                __vector_13
+                0x000000a4                __vector_17
+                0x000000a4                __vector_7
+                0x000000a4                __vector_5
+                0x000000a4                __vector_4
+                0x000000a4                __vector_9
+                0x000000a4                __vector_2
+                0x000000a4                __vector_15
+                0x000000a4                __vector_8
+                0x000000a4                __vector_14
+                0x000000a4                __vector_10
+                0x000000a4                __vector_16
+                0x000000a4                __vector_18
+ .text          0x000000a6      0x116 .objs\src\cpu_io.o
+                0x000000a6                cpuIoInit
+                0x000000ec                cpuIoReset
+                0x00000136                cpuIoPush
+                0x000000b0                cpuIoPoll
+                0x00000102                cpuIoPop
+ .text          0x000001bc       0x34 .objs\src\dbg.o
+                0x000001bc                initLeds
+                0x000001c8                setDbgLed
+                0x000001d2                setLed
+                0x000001dc                toggleDbgLed
+ .text          0x000001f0       0xa0 .objs\src\funcs.o
+                0x000001f0                invoke
+ .text          0x00000290       0x84 .objs\src\main.o
+                0x000002dc                usbFunctionSetup
+                0x00000290                main
+                0x00000308                usbFunctionRead
+                0x00000302                usbFunctionWrite
+ .text          0x00000314      0x238 .objs\usbdrv\usbdrv.o
+                0x00000322                usbPoll
+                0x00000314                usbInit
+ .text          0x0000054c      0x28c .objs\usbdrv\usbdrvasm.o
+                0x0000057e                __vector_1
+                0x0000054c                usbCrc16
+                0x00000576                usbCrc16Append
+ .text          0x000007d8        0x0 c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_exit.o)
+ .text          0x000007d8        0x0 c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_copy_data.o)
+ .text          0x000007d8        0x0 c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_clear_bss.o)
+                0x000007d8                . = ALIGN (0x2)
+ *(.text.*)
+ .text.libgcc   0x000007d8        0x0 c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_exit.o)
+ .text.libgcc   0x000007d8        0x0 c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_copy_data.o)
+ .text.libgcc   0x000007d8        0x0 c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_clear_bss.o)
+                0x000007d8                . = ALIGN (0x2)
+ *(.fini9)
+ .fini9         0x000007d8        0x0 c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_exit.o)
+                0x000007d8                exit
+                0x000007d8                _exit
+ *(.fini9)
+ *(.fini8)
+ *(.fini8)
+ *(.fini7)
+ *(.fini7)
+ *(.fini6)
+ *(.fini6)
+ *(.fini5)
+ *(.fini5)
+ *(.fini4)
+ *(.fini4)
+ *(.fini3)
+ *(.fini3)
+ *(.fini2)
+ *(.fini2)
+ *(.fini1)
+ *(.fini1)
+ *(.fini0)
+ .fini0         0x000007d8        0x4 c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_exit.o)
+ *(.fini0)
+                0x000007dc                _etext = .
+
+.data           0x00800060        0xe load address 0x000007dc
+                0x00800060                PROVIDE (__data_start, .)
+ *(.data)
+ .data          0x00800060        0x0 c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+ .data          0x00800060        0x0 .objs\src\cpu_io.o
+ .data          0x00800060        0x0 .objs\src\dbg.o
+ .data          0x00800060        0xb .objs\src\funcs.o
+ .data          0x0080006b        0x0 .objs\src\main.o
+ .data          0x0080006b        0x2 .objs\usbdrv\usbdrv.o
+                0x0080006b                usbTxLen
+ .data          0x0080006d        0x0 .objs\usbdrv\usbdrvasm.o
+ .data          0x0080006d        0x0 c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_exit.o)
+ .data          0x0080006d        0x0 c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_copy_data.o)
+ .data          0x0080006d        0x0 c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_clear_bss.o)
+ *(.data*)
+ *(.rodata)
+ *(.rodata*)
+ *(.gnu.linkonce.d*)
+                0x0080006e                . = ALIGN (0x2)
+ *fill*         0x0080006d        0x1 00
+                0x0080006e                _edata = .
+                0x0080006e                PROVIDE (__data_end, .)
+
+.bss            0x0080006e      0x158
+                0x0080006e                PROVIDE (__bss_start, .)
+ *(.bss)
+ .bss           0x0080006e        0x0 c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+ .bss           0x0080006e        0x5 .objs\src\cpu_io.o
+                0x00800071                g_ioWatchdog
+                0x0080006e                g_ioExpected
+                0x0080006f                g_ioWrPtr
+                0x00800070                g_ioRdPtr
+ .bss           0x00800073        0x0 .objs\src\dbg.o
+ .bss           0x00800073        0x0 .objs\src\funcs.o
+ .bss           0x00800073        0x8 .objs\src\main.o
+ .bss           0x0080007b        0x1 .objs\usbdrv\usbdrv.o
+ .bss           0x0080007c        0x0 .objs\usbdrv\usbdrvasm.o
+ .bss           0x0080007c        0x0 c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_exit.o)
+ .bss           0x0080007c        0x0 c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_copy_data.o)
+ .bss           0x0080007c        0x0 c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_clear_bss.o)
+ *(.bss*)
+ *(COMMON)
+ COMMON         0x0080007c       0x20 .objs\src\cpu_io.o
+                0x0080007c                g_ioBuffer
+ COMMON         0x0080009c      0x100 .objs\src\funcs.o
+                0x0080009c                g_ramParams
+                0x0080011c                g_eepromParams
+ COMMON         0x0080019c       0x2a .objs\usbdrv\usbdrv.o
+                0x0080019c                usbTxBuf
+                0x008001a7                usbDeviceAddr
+                0x008001a8                usbRxToken
+                0x008001a9                usbInputBufOffset
+                0x008001aa                usbMsgPtr
+                0x008001ac                usbRxLen
+                0x008001ad                usbNewDeviceAddr
+                0x008001ae                usbCurrentTok
+                0x008001af                usbConfiguration
+                0x008001b0                usbRxBuf
+                0x008001c6                PROVIDE (__bss_end, .)
+                0x000007dc                __data_load_start = LOADADDR (.data)
+                0x000007ea                __data_load_end = (__data_load_start + SIZEOF (.data))
+
+.noinit         0x008001c6        0x0
+                0x008001c6                PROVIDE (__noinit_start, .)
+ *(.noinit*)
+                0x008001c6                PROVIDE (__noinit_end, .)
+                0x008001c6                _end = .
+                0x008001c6                PROVIDE (__heap_start, .)
+
+.eeprom         0x00810000        0x0
+ *(.eeprom*)
+                0x00810000                __eeprom_end = .
+
+.fuse
+ *(.fuse)
+ *(.lfuse)
+ *(.hfuse)
+ *(.efuse)
+
+.lock
+ *(.lock*)
+
+.signature
+ *(.signature*)
+
+.stab
+ *(.stab)
+
+.stabstr
+ *(.stabstr)
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment
+ *(.comment)
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges
+ *(.debug_aranges)
+
+.debug_pubnames
+ *(.debug_pubnames)
+
+.debug_info
+ *(.debug_info)
+ *(.gnu.linkonce.wi.*)
+
+.debug_abbrev
+ *(.debug_abbrev)
+
+.debug_line
+ *(.debug_line)
+
+.debug_frame
+ *(.debug_frame)
+
+.debug_str
+ *(.debug_str)
+
+.debug_loc
+ *(.debug_loc)
+
+.debug_macinfo
+ *(.debug_macinfo)
+OUTPUT(atmega8.exe elf32-avr)
+LOAD linker stubs
+
+Cross Reference Table
+
+Symbol                                            File
+__bad_interrupt                                   c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__bss_end                                         c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_clear_bss.o)
+__bss_start                                       c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_clear_bss.o)
+__data_end                                        c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_copy_data.o)
+__data_load_start                                 c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_copy_data.o)
+__data_start                                      c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_copy_data.o)
+__do_clear_bss                                    c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_clear_bss.o)
+                                                  .objs\usbdrv\usbdrv.o
+                                                  .objs\src\main.o
+                                                  .objs\src\funcs.o
+                                                  .objs\src\cpu_io.o
+__do_copy_data                                    c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_copy_data.o)
+                                                  .objs\usbdrv\usbdrv.o
+                                                  .objs\src\funcs.o
+__heap_end                                        c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__init                                            c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__stack                                           c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vector_1                                        .objs\usbdrv\usbdrvasm.o
+                                                  c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vector_10                                       c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vector_11                                       c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vector_12                                       c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vector_13                                       c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vector_14                                       c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vector_15                                       c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vector_16                                       c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vector_17                                       c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vector_18                                       c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vector_2                                        c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vector_3                                        c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vector_4                                        c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vector_5                                        c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vector_6                                        c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vector_7                                        c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vector_8                                        c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vector_9                                        c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vector_default                                  c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vectors                                         c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+_exit                                             c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_exit.o)
+cpuIoInit                                         .objs\src\cpu_io.o
+cpuIoPoll                                         .objs\src\cpu_io.o
+cpuIoPop                                          .objs\src\cpu_io.o
+                                                  .objs\src\main.o
+cpuIoPush                                         .objs\src\cpu_io.o
+                                                  .objs\src\main.o
+cpuIoReset                                        .objs\src\cpu_io.o
+exit                                              c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_exit.o)
+                                                  c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+g_eepromParams                                    .objs\src\funcs.o
+g_ioBuffer                                        .objs\src\cpu_io.o
+g_ioExpected                                      .objs\src\cpu_io.o
+g_ioRdPtr                                         .objs\src\cpu_io.o
+g_ioWatchdog                                      .objs\src\cpu_io.o
+g_ioWrPtr                                         .objs\src\cpu_io.o
+g_ramParams                                       .objs\src\funcs.o
+initLeds                                          .objs\src\dbg.o
+invoke                                            .objs\src\funcs.o
+                                                  .objs\src\cpu_io.o
+main                                              .objs\src\main.o
+                                                  c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+setDbgLed                                         .objs\src\dbg.o
+                                                  .objs\src\funcs.o
+setLed                                            .objs\src\dbg.o
+                                                  .objs\src\funcs.o
+toggleDbgLed                                      .objs\src\dbg.o
+usbConfiguration                                  .objs\usbdrv\usbdrv.o
+usbCrc16                                          .objs\usbdrv\usbdrvasm.o
+usbCrc16Append                                    .objs\usbdrv\usbdrvasm.o
+                                                  .objs\usbdrv\usbdrv.o
+usbCurrentTok                                     .objs\usbdrv\usbdrvasm.o
+                                                  .objs\usbdrv\usbdrv.o
+usbDescriptorConfiguration                        .objs\usbdrv\usbdrv.o
+usbDescriptorDevice                               .objs\usbdrv\usbdrv.o
+usbDescriptorString0                              .objs\usbdrv\usbdrv.o
+usbDescriptorStringDevice                         .objs\usbdrv\usbdrv.o
+usbDescriptorStringVendor                         .objs\usbdrv\usbdrv.o
+usbDeviceAddr                                     .objs\usbdrv\usbdrvasm.o
+                                                  .objs\usbdrv\usbdrv.o
+usbFunctionRead                                   .objs\src\main.o
+                                                  .objs\usbdrv\usbdrv.o
+usbFunctionSetup                                  .objs\src\main.o
+                                                  .objs\usbdrv\usbdrv.o
+usbFunctionWrite                                  .objs\src\main.o
+                                                  .objs\usbdrv\usbdrv.o
+usbInit                                           .objs\usbdrv\usbdrv.o
+usbInputBufOffset                                 .objs\usbdrv\usbdrvasm.o
+                                                  .objs\usbdrv\usbdrv.o
+usbMsgPtr                                         .objs\usbdrv\usbdrv.o
+                                                  .objs\src\main.o
+usbNewDeviceAddr                                  .objs\usbdrv\usbdrvasm.o
+                                                  .objs\usbdrv\usbdrv.o
+usbPoll                                           .objs\usbdrv\usbdrv.o
+usbRxBuf                                          .objs\usbdrv\usbdrvasm.o
+                                                  .objs\usbdrv\usbdrv.o
+usbRxLen                                          .objs\usbdrv\usbdrvasm.o
+                                                  .objs\usbdrv\usbdrv.o
+usbRxToken                                        .objs\usbdrv\usbdrvasm.o
+                                                  .objs\usbdrv\usbdrv.o
+usbTxBuf                                          .objs\usbdrv\usbdrvasm.o
+                                                  .objs\usbdrv\usbdrv.o
+usbTxLen                                          .objs\usbdrv\usbdrv.o
+                                                  .objs\usbdrv\usbdrvasm.o

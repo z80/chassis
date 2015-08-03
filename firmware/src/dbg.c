@@ -9,8 +9,8 @@
 
 void initLeds( void )
 {
-    LED_DDR  |= LED_PAD | DBG_LED_PAD;
     LED_PORT |= 0b00000000;
+    LED_DDR  |= LED_PAD | DBG_LED_PAD;
 }
 
 void setDbgLed( unsigned char val )
@@ -23,7 +23,7 @@ void setLed( unsigned char val )
     LED_PORT = (LED_PORT & (~(LED_PAD))) | val;
 }
 
-void blinkDbgLed( void )
+void toggleDbgLed( void )
 {
     uint8_t led = (LED_PORT & DBG_LED_PAD) ? 0 : DBG_LED_PAD;
     LED_PORT = (LED_PORT & (~(DBG_LED_PAD))) | led;
