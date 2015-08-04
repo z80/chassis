@@ -2,7 +2,7 @@
 #include <avr/io.h>
 #include <avr/interrupt.h>
 #include <avr/wdt.h>
-#include <util/delay.h>     // for _delay_ms()
+//#include <util/delay.h>     // for _delay_ms()
 
 #include "./pgmspace.h"   // required by usbdrv.h
 #include "usbdrv.h"
@@ -26,7 +26,7 @@ void __attribute__((noreturn)) main( void )
     unsigned char b = 150;
     while ( b-- )
     {
-        _delay_ms( 1 );
+        //_delay_ms( 1 );
         wdt_reset();
     }
     cpuIoInit();

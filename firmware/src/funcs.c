@@ -2,6 +2,7 @@
 #include "funcs.h"
 #include "config.h"
 #include "dbg.h"
+#include "pwm_ctrl.h"
 
 // For debug purpose only
 #define MEM_SZ 128
@@ -147,12 +148,16 @@ static void set_Pwr( uchar * io )
 
 static void set_PwmEn( uchar * io )
 {
-
+    setPwmEn( io[0] );
 }
 
 static void set_Pwm( uchar * io )
 {
-
+    uint16_t pwm = (uint16_t)(io[0]) + (((uint16_t)(io[1])) << 8);
+    setPwm0( pwm );
+    pwm = (uint16_t)(io[2]) + (((uint16_t)(io[3])) << 8);
+    setPwm1( pwm );
+    updatePwm();
 }
 
 
