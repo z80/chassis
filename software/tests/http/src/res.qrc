@@ -25,5 +25,8 @@
         <file>res/icon-dark.png</file>
         <file>res/icon-white.png</file>
         <file>res/config.ini</file>
+        <file>res/scripts/jquery-ui.min.js</file>
+        <file>res/styles/jquery-ui.min.css</file>
+        <file>res/styles/jquery-ui.theme.min.css</file>
     </qresource>
 </RCC>
