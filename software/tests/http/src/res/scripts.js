@@ -22,6 +22,11 @@
       timeout = setTimeout( onTimeout, 200 );
     }
 
+    function onPostCamXy()
+    {
+      var x = $( "#slider-horizontal" ).slider( "value" );
+    }
+
     function documentReady()
     {
       /*

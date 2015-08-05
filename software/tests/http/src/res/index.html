@@ -7,6 +7,14 @@
   <link href="styles/bootstrap.min.css" rel="stylesheet"></link>
   <link rel="stylesheet" href="styles/jquery-ui.min.css">
   <link rel="stylesheet" href="styles/jquery-ui.theme.min.css">
+
+  <style>
+    *
+    {
+      border: 1px solid red;
+    }
+  </style>
+
 </head>
 
 <body>
@@ -15,32 +23,56 @@
       <h2>Camera capture</h2>
     </div>
     <div class="row">
-      <div class="col-sm-1">
+      <div class="col-sm-2">
       </div>
-      <div class="col-sm-1">
 
-        <p>
-          <label for="dirY" style="aling:center;">Direction Y:</label>
-          <input type="text" id="dirY" readonly style="border:0; color:#f6931f; font-weight:bold; align:center;">
-        </p>
-
-        <div id="slider-vertical" style="height:480px;"></div>
-
-      </div>
       <div class="col-sm-8">
-        <div align="center">
-          <p>
-            <label for="dirX" style="aling:center;">Direction X:</label>
-            <input type="text" id="dirX" readonly style="border:0; color:#f6931f; font-weight:bold; align:center;">
-          </p>
 
-          <div id="slider-horizontal" style="width:640px;"></div>
-        </div>
-        <div align="center">
-          <img src="jpg-image" id="img" class="row-sm-8"/>
-        </div>
+        <table style="border-color: red;">
+          <tr>
+            <td style="width: 1cm; align: center;">
+              <p>
+                <label for="dirY" style="aling:center;">Direction Y:</label>
+                <input type="text" id="dirY" readonly style="border:0; color:#f6931f; font-weight:bold; align:center;">
+              </p>
+              <div id="slider-vertical" style="height:480px; align: center;"></div>
+            </td>
+
+
+
+            <td>
+              <div align="center">
+                <p>
+                  <label for="dirX" style="aling:center;">Direction X:</label>
+                  <input type="text" id="dirX" readonly style="border:0; color:#f6931f; font-weight:bold; align:center;">
+                </p>
+
+                <div id="slider-horizontal" style="width:640px;"></div>
+              </div>
+              <div align="center">
+                <img src="jpg-image" id="img" class="row-sm-8"/>
+              </div>
+
+            </td>
+
+          </tr>
+
+
+          <tr>
+            <td style="align: center;">
+              <button id="post-camera-orientation" class="btn btn-warning">Force send camera orientation</button>
+              <button id="refresh-image" class="btn btn-warning">Force refresh image</button>
+            </td>
+          </tr>
+
+        </table>
+
+
+
+
       </div>
-      <div class="col-vs-2"></div>
+      <div class="col-vs-2">
+      </div>
     </div>
     <div class="row">
       <div class="col-sm-2">
