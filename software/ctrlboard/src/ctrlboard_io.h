@@ -22,7 +22,7 @@ public:
     bool setPower( bool en );
     bool setServoEn( bool en );
     bool setLed( bool en );
-    bool setServo( int percent );
+    bool setServo( int raw1, int raw2 );
 
     // Group 1.
     bool setThrottleType( TThrottleType val );

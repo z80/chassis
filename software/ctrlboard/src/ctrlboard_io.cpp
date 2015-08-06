@@ -107,9 +107,12 @@ bool CtrlboardIo::setLed( bool en )
     return res;
 }
 
-bool CtrlboardIo::setServo( int percent )
+bool CtrlboardIo::setServo( int raw1, int raw2 )
 {
-    bool res = putUInt16( (quint16)percent );
+    bool res = putUInt16( (quint16)raw1 );
+    if ( !res )
+        return false;
+    res = putUInt16( (quint16)raw2 );
     if ( !res )
         return false;
     res = execFunc( FUNC_SET_PWM );
