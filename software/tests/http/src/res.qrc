@@ -28,5 +28,7 @@
         <file>res/scripts/jquery-ui.min.js</file>
         <file>res/styles/jquery-ui.min.css</file>
         <file>res/styles/jquery-ui.theme.min.css</file>
+        <file>res/style.css</file>
+        <file>res/styles/awesome-bootstrap-checkbox.css</file>
     </qresource>
 </RCC>

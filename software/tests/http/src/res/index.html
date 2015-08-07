@@ -7,6 +7,8 @@
   <link href="styles/bootstrap.min.css" rel="stylesheet"></link>
   <link rel="stylesheet" href="styles/jquery-ui.min.css">
   <link rel="stylesheet" href="styles/jquery-ui.theme.min.css">
+  <link rel="stylesheet" href="styles/awesome-boostrap-checkbox.css">
+  <link rel="stylesheet" href="style.css">
 
   <style>
     *
@@ -34,9 +36,15 @@
             </td>
             <td style="align: center;">
               <button id="post-camera-orientation" class="btn btn-info">Orient camera</button>
+              <div class="checkbox checkbox-success checkbox-inline">
+                <input type="checkbox" id="autorefresh"></input>
+                <label for="autorefresh">Autorefresh image</label>
+              </div>
+              <div class="checkbox checkbox-success checkbox-inline">
+                <input type="checkbox" id="light" class="checkbox checkbox-info"></input>
+                <label for="light">Camera light</label>
+              </div>
               <button id="force-refresh-image" class="btn btn-warning">Manually refresh image</button>
-              <input type="checkbox" id="autorefresh" class="btn btn-info">Autorefresh image</checkbox>
-              <input type="checkbox" id="light" class="btn btn-info">Camera light</checkbox>
             </td>
           </tr>
 
