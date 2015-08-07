@@ -8,6 +8,7 @@
 #include "usbdrv.h"
 #include "cpu_io.h"
 #include "dbg.h"
+#include "pwm_ctrl.h"
 
 #include "config.h"
 
@@ -17,6 +18,7 @@ void __attribute__((noreturn)) main( void )
 {
     cli();
     initLeds();
+    initPwm();
 
     wdt_enable( WDTO_1S );
 

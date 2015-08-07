@@ -45,6 +45,7 @@ volatile static uint8_t pwmState;
 
 ISR(TIMER1_COMPA_vect)
 {
+    return;
     if ( pwmState == STATE_PWM )
     {
         PWM_PORT = PWM_PORT & (pwmPadsSorted[pwmIndex].pads);
@@ -90,11 +91,13 @@ void initPwm( void )
 void setPwmEn( uint8_t en )
 {
     // If state is active, wait for inactive.
+    /*
     while ( pwmState == STATE_PWM )
     {
         usbPoll();
         cpuIoPoll();
     }
+    */
 
     // Turn timer off to avoid any glitches. I'm not sure if it should
     // be turned off regardless of situation but just in case...
@@ -129,13 +132,15 @@ void updatePwm( void )
     uint8_t en = (pwmState == STATE_OFF) ? 0 : 1;
 
     // If state is active, wait for inactive.
+    /*
     while ( pwmState == STATE_PWM )
     {
         usbPoll();
         cpuIoPoll();
     }
+    */
     // Turn timer off.
-    TCCR1B = 0;
+    TIMER_OFF();
 
     // Setup and sort PWM durations.
     // Initialize PADS for appropriate PWM channels.

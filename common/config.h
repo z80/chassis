@@ -3,7 +3,7 @@
 #define __CONFIG_H_
 
 #define VERSION "0.1.0"
-#define FIRMWARE "moto"
+#define FIRMWARE "chassis"
 
 // Param IDs (in EEPROM).
 #define THROTTLE_TYPE           0

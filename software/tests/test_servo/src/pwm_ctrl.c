@@ -118,7 +118,9 @@ void setPwm1( uint16_t interval )
 void updatePwm( void )
 {
     // Check if it is necessary to restart timer afpter parameters apply.
+    uint8_t i, j;
     uint8_t en = (pwmState == STATE_OFF) ? 0 : 1;
+    uint8_t mask = 0; // This is mask here.
 
     // If state is active, wait for inactive.
     /*
@@ -136,7 +138,6 @@ void updatePwm( void )
     pwmPads[0].pads = PWM_PAD_0;
     pwmPads[1].pads = PWM_PAD_1;
 
-    uint8_t i, j;
     for ( i=0; i<PWM_CNT; i++ )
         pwmPadsSorted[i] = pwmPads[i];
 
@@ -156,7 +157,6 @@ void updatePwm( void )
 
     // Merge pads with matching duration.
     pwmCnt = 0;
-    uint8_t mask = 0; // This is mask here.
     for ( i=0; i<PWM_CNT; i++ )
     {
         mask |= pwmPadsSorted[i].pads;
