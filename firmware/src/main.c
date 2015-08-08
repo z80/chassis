@@ -14,8 +14,46 @@
 
 usbMsgLen_t usbFunctionSetup( uchar data[8] );
 
+
+// *********************
+// Debugging
+// *********************
+
+#define TIMER_PWM( trig )     TCNT1=0; OCR1A = trig; TCCR1B = CS12 | CS10; // Fclk/1024
+#define TIMER_PAUSE( trig )   TCNT1=0; OCR1A = trig; TCCR1B = CS12 | CS10;
+#define TIMER_OFF()           TCCR1B = 0; TCNT1=0;
+
+ISR(TIMER1_COMPA_vect)
+{
+    toggleDbgLed();
+}
+
+// *********************
+// Debugging
+// *********************
+
+
 void __attribute__((noreturn)) main( void )
 {
+
+    sei();
+    initLeds();
+
+    // Setup timer.
+    TCCR1A = 0;         // I don't use these advanced modes here. So <- 0.
+    TCCR1B = 0;         // 0 - timer off. CS10 - no prescaler. CS11 = 1/8 prescaler, CS11 | CS10 = 1/64 prescaler.
+    TCNT1  = 0x0000;    // Counter register. Start counting from 0.
+    OCR1A  = 0x0000;    // Compare register.
+    TIMSK  = OCIE1A;    // Interrupt mask register. Output compare interrupt enable.
+
+    TIMER_PWM( 11718 );
+    while ( 1 )
+    {
+    }
+
+
+
+/*
     cli();
     initLeds();
     initPwm();
@@ -44,6 +82,7 @@ void __attribute__((noreturn)) main( void )
         cpuIoPoll();
         //_delay_ms( 1 );
     }
+*/
 }
 
 usbMsgLen_t usbFunctionSetup( uchar data[8] )

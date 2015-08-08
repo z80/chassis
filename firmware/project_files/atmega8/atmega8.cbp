@@ -52,10 +52,6 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="../../src/pgmspace.h" />
-		<Unit filename="../../src/pwm_ctrl.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="../../src/pwm_ctrl.h" />
 		<Unit filename="../../src/usbconfig.h" />
 		<Unit filename="../../usbdrv/usbdrv.c">
 			<Option compilerVar="CC" />
