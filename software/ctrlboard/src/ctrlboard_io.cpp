@@ -107,7 +107,7 @@ bool CtrlboardIo::setLed( bool en )
     return res;
 }
 
-bool CtrlboardIo::setServo( int raw1, int raw2 )
+bool CtrlboardIo::setServoRaw( int raw1, int raw2 )
 {
     bool res = putUInt16( (quint16)raw1 );
     if ( !res )
@@ -116,6 +116,18 @@ bool CtrlboardIo::setServo( int raw1, int raw2 )
     if ( !res )
         return false;
     res = execFunc( FUNC_SET_PWM );
+    return res;
+}
+
+bool CtrlboardIo::setServo( qreal v1, qreal v2 )
+{
+    qreal vmin = 100.0;
+    qreal vmax = 450.0;
+    qreal vv1 = vmin + (vmax - vmin)*v1/100.0;
+    qreal vv2 = vmin + (vmax - vmin)*v2/100.0;
+    int raw1 = static_cast<int>( vv1 );
+    int raw2 = static_cast<int>( vv2 );
+    bool res = setServoRaw( raw1, raw2 );
     return res;
 }
 
