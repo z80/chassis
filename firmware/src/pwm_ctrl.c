@@ -37,8 +37,8 @@ volatile static uint8_t pwmState;
 
 #define PAUSE_DURATION  123
 
-#define TIMER_PWM( trig )     TCNT1=0; OCR1A = trig; TCCR1B = CS11;
-#define TIMER_PAUSE( trig )   TCNT1=0; OCR1A = trig; TCCR1B = CS11;
+#define TIMER_PWM( trig )     TCNT1=0; OCR1A = trig; TCCR1B = (1<<CS11);
+#define TIMER_PAUSE( trig )   TCNT1=0; OCR1A = trig; TCCR1B = (1<<CS11);
 #define TIMER_OFF()           TCCR1B = 0; TCNT1=0;
 
 
@@ -85,7 +85,7 @@ void initPwm( void )
     TCCR1B = 0;         // 0 - timer off. CS10 - no prescaler. CS11 = 1/8 prescaler, CS11 | CS10 = 1/64 prescaler.
     TCNT1  = 0x0000;    // Counter register. Start counting from 0.
     OCR1A  = 0x0000;    // Compare register.
-    TIMSK  = OCIE1A;    // Interrupt mask register. Output compare interrupt enable.
+    TIMSK  = (1<<OCIE1A);    // Interrupt mask register. Output compare interrupt enable.
 }
 
 void setPwmEn( uint8_t en )
