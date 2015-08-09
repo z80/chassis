@@ -32,6 +32,14 @@ if ( USE_OPENCV )
 endif ( USE_OPENCV )
 
 
+include_directories( ${ROOT}/ctrlboard/src )
+if ( WIN32 )
+    include_directories( "${ROOT}/ctrlboard/src/win32" )
+else ( WIN32 )
+    include_directories( "${ROOT}/ctrlboard/src/linux" )
+endif ( WIN32 )
+
+
 file( GLOB src     "./src/*.cpp" )
 file( GLOB win_src "./src/windows/*.cpp" )
 file( GLOB lin_src "./src/linux/*.cpp" )
@@ -84,6 +92,6 @@ endif ( WIN32 )
 
 
 
-target_link_libraries( ${PROJ_NAME} ${libs} qtwebapp ${QT_LIBRARIES} )
+target_link_libraries( ${PROJ_NAME} ${libs} qtwebapp ctrlboard ${QT_LIBRARIES} )
 install( TARGETS ${PROJ_NAME} DESTINATION "./" )
 

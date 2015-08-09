@@ -4,6 +4,7 @@
 
 #include <QtCore>
 #include <QImage>
+#include <QPixmap>
 
 class CamHandler::PD
 {
@@ -113,12 +114,13 @@ bool CamHandler::service( HttpRequest& request, HttpResponse& response )
     if ( request.getPath() != "/jpg-image" )
         return false;
     
-    QImage image = pd->image();
+    QPixmap pixmap;
+    pixmap.convertFromImage( pd->image() ); //.scaled( 1.0, 1.0 );
 
     QBuffer buffer( &pd->data );
-    QSize sz = image.size();
+    QSize sz = pixmap.size();
     buffer.open(QIODevice::WriteOnly);
-    bool res = image.save( &buffer, "JPG", 70 );
+    bool res = pixmap.save( &buffer, "JPG", 70 );
 
     response.setHeader("Content-Type", "image/JPG");
     response.write( pd->data, true );

@@ -114,7 +114,11 @@
     function lightEn()
     {
       var data = {}
-      data.light = $( '#light' ).prop( "checked" );
+      var en = $( '#light' ).prop( "checked" );
+      if ( en )
+        data.light = 1;
+      else
+        data.light = 0;
 
       var posting = $.post( "chassis", data );
       var stri;
