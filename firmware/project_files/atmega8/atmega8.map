@@ -143,7 +143,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0x8c4
+.text           0x00000000      0x8ca
  *(.vectors)
  .vectors       0x00000000       0x26 /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/crtm8.o
                 0x00000000                __vectors
@@ -222,83 +222,83 @@ END GROUP
                 0x000000a4                __vector_10
                 0x000000a4                __vector_16
                 0x000000a4                __vector_18
- .text          0x000000a6      0x156 .objs/src/cpu_io.o
+ .text          0x000000a6      0x158 .objs/src/cpu_io.o
                 0x000000a6                cpuIoInit
                 0x000000b0                cpuIoPoll
                 0x000000ee                cpuIoReset
                 0x00000104                cpuIoPush
-                0x000001be                cpuIoPop
- .text          0x000001fc       0x82 .objs/src/dbg.o
-                0x000001fc                initLeds
-                0x0000020e                setDbgLed
-                0x0000022a                setLed
-                0x00000246                setPower
-                0x00000262                toggleDbgLed
- .text          0x0000027e       0xb4 .objs/src/funcs.o
-                0x0000027e                invoke
- .text          0x00000332       0x7c .objs/src/main.o
-                0x00000332                __vector_6
-                0x00000378                usbFunctionSetup
-                0x0000039c                usbFunctionRead
-                0x000003a8                usbFunctionWrite
- .text          0x000003ae      0x260 .objs/usbdrv/usbdrv.o
-                0x000003ae                usbPoll
-                0x00000600                usbInit
- .text          0x0000060e      0x28c .objs/usbdrv/usbdrvasm.o
-                0x0000060e                usbCrc16
-                0x00000638                usbCrc16Append
-                0x00000640                __vector_1
- .text          0x0000089a        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_exit.o)
- .text          0x0000089a        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_copy_data.o)
- .text          0x0000089a        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_clear_bss.o)
-                0x0000089a                . = ALIGN (0x2)
+                0x000001c0                cpuIoPop
+ .text          0x000001fe       0x82 .objs/src/dbg.o
+                0x000001fe                initLeds
+                0x00000210                setDbgLed
+                0x0000022c                setLed
+                0x00000248                setPower
+                0x00000264                toggleDbgLed
+ .text          0x00000280       0xb4 .objs/src/funcs.o
+                0x00000280                invoke
+ .text          0x00000334       0x80 .objs/src/main.o
+                0x00000334                __vector_6
+                0x0000037e                usbFunctionSetup
+                0x000003a2                usbFunctionRead
+                0x000003ae                usbFunctionWrite
+ .text          0x000003b4      0x260 .objs/usbdrv/usbdrv.o
+                0x000003b4                usbPoll
+                0x00000606                usbInit
+ .text          0x00000614      0x28c .objs/usbdrv/usbdrvasm.o
+                0x00000614                usbCrc16
+                0x0000063e                usbCrc16Append
+                0x00000646                __vector_1
+ .text          0x000008a0        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_exit.o)
+ .text          0x000008a0        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_copy_data.o)
+ .text          0x000008a0        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_clear_bss.o)
+                0x000008a0                . = ALIGN (0x2)
  *(.text.*)
- .text.startup  0x0000089a       0x26 .objs/src/main.o
-                0x0000089a                main
+ .text.startup  0x000008a0       0x26 .objs/src/main.o
+                0x000008a0                main
  .text.libgcc.mul
-                0x000008c0        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_exit.o)
+                0x000008c6        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_exit.o)
  .text.libgcc.div
-                0x000008c0        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_exit.o)
- .text.libgcc   0x000008c0        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_exit.o)
+                0x000008c6        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_exit.o)
+ .text.libgcc   0x000008c6        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_exit.o)
  .text.libgcc.prologue
-                0x000008c0        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_exit.o)
+                0x000008c6        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_exit.o)
  .text.libgcc.builtins
-                0x000008c0        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_exit.o)
+                0x000008c6        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_exit.o)
  .text.libgcc.fmul
-                0x000008c0        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_exit.o)
+                0x000008c6        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_exit.o)
  .text.libgcc.fixed
-                0x000008c0        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_exit.o)
+                0x000008c6        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_exit.o)
  .text.libgcc.mul
-                0x000008c0        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_copy_data.o)
+                0x000008c6        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_copy_data.o)
  .text.libgcc.div
-                0x000008c0        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_copy_data.o)
- .text.libgcc   0x000008c0        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_copy_data.o)
+                0x000008c6        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_copy_data.o)
+ .text.libgcc   0x000008c6        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_copy_data.o)
  .text.libgcc.prologue
-                0x000008c0        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_copy_data.o)
+                0x000008c6        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_copy_data.o)
  .text.libgcc.builtins
-                0x000008c0        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_copy_data.o)
+                0x000008c6        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_copy_data.o)
  .text.libgcc.fmul
-                0x000008c0        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_copy_data.o)
+                0x000008c6        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_copy_data.o)
  .text.libgcc.fixed
-                0x000008c0        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_copy_data.o)
+                0x000008c6        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_copy_data.o)
  .text.libgcc.mul
-                0x000008c0        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_clear_bss.o)
+                0x000008c6        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_clear_bss.o)
  .text.libgcc.div
-                0x000008c0        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_clear_bss.o)
- .text.libgcc   0x000008c0        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_clear_bss.o)
+                0x000008c6        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_clear_bss.o)
+ .text.libgcc   0x000008c6        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_clear_bss.o)
  .text.libgcc.prologue
-                0x000008c0        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_clear_bss.o)
+                0x000008c6        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_clear_bss.o)
  .text.libgcc.builtins
-                0x000008c0        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_clear_bss.o)
+                0x000008c6        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_clear_bss.o)
  .text.libgcc.fmul
-                0x000008c0        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_clear_bss.o)
+                0x000008c6        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_clear_bss.o)
  .text.libgcc.fixed
-                0x000008c0        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_clear_bss.o)
-                0x000008c0                . = ALIGN (0x2)
+                0x000008c6        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_clear_bss.o)
+                0x000008c6                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x000008c0        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_exit.o)
-                0x000008c0                exit
-                0x000008c0                _exit
+ .fini9         0x000008c6        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_exit.o)
+                0x000008c6                exit
+                0x000008c6                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -317,11 +317,11 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x000008c0        0x4 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_exit.o)
+ .fini0         0x000008c6        0x4 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_exit.o)
  *(.fini0)
-                0x000008c4                _etext = .
+                0x000008ca                _etext = .
 
-.data           0x00800060        0x8 load address 0x000008c4
+.data           0x00800060        0x8 load address 0x000008ca
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800060        0x0 /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/crtm8.o
@@ -381,8 +381,8 @@ END GROUP
                 0x008001a9                usbConfiguration
                 0x008001aa                usbRxBuf
                 0x008001c0                PROVIDE (__bss_end, .)
-                0x000008c4                __data_load_start = LOADADDR (.data)
-                0x000008cc                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x000008ca                __data_load_start = LOADADDR (.data)
+                0x000008d2                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x008001c0        0x0
                 0x008001c0                PROVIDE (__noinit_start, .)
