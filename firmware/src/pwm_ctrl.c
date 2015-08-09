@@ -3,6 +3,7 @@
 
 #include <avr/interrupt.h>
 #include "cpu_io.h"
+#include "dbg.h"
 
 // 12MHz.
 // I need 1-2ms with relatively big precission.
@@ -35,18 +36,26 @@ volatile static uint8_t pwmState;
 #define STATE_PWM      1
 #define STATE_PAUSE    2
 
-#define PAUSE_DURATION  123
+#define PAUSE_DURATION  3750
 
-#define TIMER_PWM( trig )     TCNT1=0; OCR1A = trig; TCCR1B = (1<<CS11);
-#define TIMER_PAUSE( trig )   TCNT1=0; OCR1A = trig; TCCR1B = (1<<CS11);
-#define TIMER_OFF()           TCCR1B = 0; TCNT1=0;
+#define TIMER_PWM( trig )     TCNT1=0; OCR1A=trig; TCCR1B=((1<<CS11) | (1<<CS10));
+#define TIMER_PAUSE( trig )   TCNT1=0; OCR1A=trig; TCCR1B=((1<<CS11) | (1<<CS10));
+#define TIMER_OFF()           TCNT1=0; TCCR1B=0;
 
 
 
 ISR(TIMER1_COMPA_vect)
 {
-    return;
-    if ( pwmState == STATE_PWM )
+    if ( pwmState == STATE_PAUSE )
+    {
+        pwmState = STATE_PWM;
+        PWM_PORT = PWM_PORT | PWM_MASK; // Enable all PWM pads.
+        // Set timer.
+        TIMER_PWM( pwmPadsSorted[0].ocr );
+        // Set PWM index to the very beginning.
+        pwmIndex = 0;
+    }
+    else if ( pwmState == STATE_PWM )
     {
         PWM_PORT = PWM_PORT & (pwmPadsSorted[pwmIndex].pads);
         pwmIndex++;
@@ -61,15 +70,11 @@ ISR(TIMER1_COMPA_vect)
             // Timer prescaler should be wide enough to allow this.
             OCR1A = pwmPadsSorted[pwmIndex].ocr;
     }
-    else if ( pwmState == STATE_PAUSE )
+    else
     {
-        pwmState = STATE_PWM;
-        PWM_PORT = PWM_PORT | PWM_MASK; // Enable all PWM pads.
-        // Set timer.
-        TIMER_PWM( pwmPadsSorted[0].ocr );
-        // Set PWM index to the very beginning.
-        pwmIndex = 0;
+        TIMER_OFF();
     }
+    toggleDbgLed();
 }
 
 void initPwm( void )
@@ -81,11 +86,11 @@ void initPwm( void )
     pwmState = STATE_OFF;
 
     // Setup timer.
-    TCCR1A = 0;         // I don't use these advanced modes here. So <- 0.
-    TCCR1B = 0;         // 0 - timer off. CS10 - no prescaler. CS11 = 1/8 prescaler, CS11 | CS10 = 1/64 prescaler.
-    TCNT1  = 0x0000;    // Counter register. Start counting from 0.
-    OCR1A  = 0x0000;    // Compare register.
-    TIMSK  = (1<<OCIE1A);    // Interrupt mask register. Output compare interrupt enable.
+    TCCR1A = 0;                 // I don't use these advanced modes here. So <- 0.
+    TCCR1B = 0;                 // 0 - timer off. CS10 - no prescaler. CS11 = 1/8 prescaler, CS11 | CS10 = 1/64 prescaler.
+    TCNT1  = 0x0000;            // Counter register. Start counting from 0.
+    OCR1A  = 0x0000;            // Compare register.
+    TIMSK  = (1<<OCIE1A);       // Interrupt mask register. Output compare interrupt enable.
 }
 
 void setPwmEn( uint8_t en )
@@ -112,7 +117,7 @@ void setPwmEn( uint8_t en )
         // Initialize timer.
         // Just in case reset port value to 0.
         pwmState = STATE_OFF;
-        PWM_PORT = PWM_PORT & (~PWM_MASK);
+        //PWM_PORT = PWM_PORT & (~PWM_MASK);
     }
 }
 
@@ -128,7 +133,7 @@ void setPwm1( uint16_t interval )
 
 void updatePwm( void )
 {
-    // Check if it is necessary to restart timer afpter parameters apply.
+    // Check if it is necessary to restart timer after parameters apply.
     uint8_t en = (pwmState == STATE_OFF) ? 0 : 1;
 
     // If state is active, wait for inactive.

@@ -14,7 +14,7 @@
 
 usbMsgLen_t usbFunctionSetup( uchar data[8] );
 
-
+/*
 // *********************
 // Debugging
 // *********************
@@ -32,11 +32,11 @@ ISR(TIMER1_COMPA_vect)
 // *********************
 // Debugging
 // *********************
-
+*/
 
 void __attribute__((noreturn)) main( void )
 {
-
+/*
     sei();
     initLeds();
 
@@ -51,10 +51,9 @@ void __attribute__((noreturn)) main( void )
     while ( 1 )
     {
     }
+*/
 
 
-
-/*
     cli();
     initLeds();
     initPwm();
@@ -83,7 +82,6 @@ void __attribute__((noreturn)) main( void )
         cpuIoPoll();
         //_delay_ms( 1 );
     }
-*/
 }
 
 usbMsgLen_t usbFunctionSetup( uchar data[8] )

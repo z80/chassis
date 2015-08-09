@@ -53,9 +53,6 @@ void cpuIoReset( void )
 
 void cpuIoPush( uchar * in, uchar cnt )
 {
-    if ( ( in[0] == 0 ) && ( in[1] == FUNC_SET_PWR ) )
-        toggleDbgLed();
-
     // IO watchdog reset.
     g_ioWatchdog = 0;
 
