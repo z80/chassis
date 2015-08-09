@@ -72,9 +72,9 @@ ISR(TIMER1_COMPA_vect)
     }
     else
     {
+        PWM_PORT &= (~PWM_MASK);
         TIMER_OFF();
     }
-    toggleDbgLed();
 }
 
 void initPwm( void )

@@ -33,6 +33,11 @@ int main( int argc, char * argv[] )
     res = io.setServo( 0.0, 100.0 );
     res = io.setServo( 50.0, 50.0 );
 
+    bool en;
+    res = io.sensor( en );
+    res = io.sensor( en );
+    res = io.sensor( en );
+
     res = io.setLed( false );
 
     //res = io.setServo( 1000, 2000 );

@@ -73,6 +73,8 @@ bool CtrlboardIo::firmware( std::string & fir )
 
 bool CtrlboardIo::setDbgLed( bool en )
 {
+    QMutexLocker lock( &m_mutex );
+
     bool res = putUInt8( en ? 1 : 0 );
     if ( !res )
         return false;
@@ -82,6 +84,8 @@ bool CtrlboardIo::setDbgLed( bool en )
 
 bool CtrlboardIo::setPower( bool en )
 {
+    QMutexLocker lock( &m_mutex );
+
     bool res = putUInt8( en ? 1 : 0 );
     if ( !res )
         return false;
@@ -91,6 +95,8 @@ bool CtrlboardIo::setPower( bool en )
 
 bool CtrlboardIo::setServoEn( bool en )
 {
+    QMutexLocker lock( &m_mutex );
+
     bool res = putUInt8( en ? 1 : 0 );
     if ( !res )
         return false;
@@ -100,6 +106,8 @@ bool CtrlboardIo::setServoEn( bool en )
 
 bool CtrlboardIo::setLed( bool en )
 {
+    QMutexLocker lock( &m_mutex );
+
     bool res = putUInt8( en ? 1 : 0 );
     if ( !res )
         return false;
@@ -121,6 +129,8 @@ bool CtrlboardIo::setServoRaw( int raw1, int raw2 )
 
 bool CtrlboardIo::setServo( qreal v1, qreal v2 )
 {
+    QMutexLocker lock( &m_mutex );
+
     qreal vmin = 100.0;
     qreal vmax = 450.0;
     qreal vv1 = vmin + (vmax - vmin)*v1/100.0;
@@ -131,6 +141,19 @@ bool CtrlboardIo::setServo( qreal v1, qreal v2 )
     return res;
 }
 
+bool CtrlboardIo::sensor( bool & activated )
+{
+    execFunc( FUNC_GET_PYRO );
+    std::basic_string<unsigned char> & from = dataFrom();
+    int sz = read( from, 1 );
+    if ( sz < 1 )
+        return false;
+    quint8 res = from.at( 0 );
+
+    activated = ( res != 0 ) ? true : false;
+
+    return true;
+}
 
 
 bool CtrlboardIo::setThrottleType( TThrottleType val )

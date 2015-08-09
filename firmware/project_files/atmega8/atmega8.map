@@ -43,6 +43,7 @@ LOAD .objs\src\dbg.o
 LOAD .objs\src\funcs.o
 LOAD .objs\src\main.o
 LOAD .objs\src\pwm_ctrl.o
+LOAD .objs\src\pyro_sen.o
 LOAD .objs\usbdrv\usbdrv.o
 LOAD .objs\usbdrv\usbdrvasm.o
 LOAD c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a
@@ -141,54 +142,56 @@ LOAD c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0xb8c
+.text           0x00000000      0xbc4
  *(.vectors)
  .vectors       0x00000000       0x26 c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
                 0x00000000                __vectors
                 0x00000000                __vector_default
  *(.vectors)
  *(.progmem.gcc*)
+ .progmem.gcc_sw_table
+                0x00000026       0x18 .objs\src\funcs.o
  *(.progmem*)
- .progmem.data  0x00000026       0x48 .objs\usbdrv\usbdrv.o
-                0x0000004a                usbDescriptorDevice
-                0x00000026                usbDescriptorString0
-                0x0000005c                usbDescriptorConfiguration
-                0x0000002a                usbDescriptorStringVendor
-                0x00000032                usbDescriptorStringDevice
-                0x0000006e                . = ALIGN (0x2)
-                0x0000006e                __trampolines_start = .
+ .progmem.data  0x0000003e       0x48 .objs\usbdrv\usbdrv.o
+                0x00000062                usbDescriptorDevice
+                0x0000003e                usbDescriptorString0
+                0x00000074                usbDescriptorConfiguration
+                0x00000042                usbDescriptorStringVendor
+                0x0000004a                usbDescriptorStringDevice
+                0x00000086                . = ALIGN (0x2)
+                0x00000086                __trampolines_start = .
  *(.trampolines)
- .trampolines   0x0000006e        0x0 linker stubs
+ .trampolines   0x00000086        0x0 linker stubs
  *(.trampolines*)
-                0x0000006e                __trampolines_end = .
+                0x00000086                __trampolines_end = .
  *(.jumptables)
  *(.jumptables*)
  *(.lowtext)
  *(.lowtext*)
-                0x0000006e                __ctors_start = .
+                0x00000086                __ctors_start = .
  *(.ctors)
-                0x0000006e                __ctors_end = .
-                0x0000006e                __dtors_start = .
+                0x00000086                __ctors_end = .
+                0x00000086                __dtors_start = .
  *(.dtors)
-                0x0000006e                __dtors_end = .
+                0x00000086                __dtors_end = .
  SORT(*)(.ctors)
  SORT(*)(.dtors)
  *(.init0)
- .init0         0x0000006e        0x0 c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
-                0x0000006e                __init
+ .init0         0x00000086        0x0 c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+                0x00000086                __init
  *(.init0)
  *(.init1)
  *(.init1)
  *(.init2)
- .init2         0x0000006e        0xc c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+ .init2         0x00000086        0xc c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
  *(.init2)
  *(.init3)
  *(.init3)
  *(.init4)
- .init4         0x0000007a       0x16 c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_copy_data.o)
-                0x0000007a                __do_copy_data
- .init4         0x00000090       0x10 c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_clear_bss.o)
-                0x00000090                __do_clear_bss
+ .init4         0x00000092       0x16 c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_copy_data.o)
+                0x00000092                __do_copy_data
+ .init4         0x000000a8       0x10 c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_clear_bss.o)
+                0x000000a8                __do_clear_bss
  *(.init4)
  *(.init5)
  *(.init5)
@@ -199,73 +202,77 @@ LOAD c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a
  *(.init8)
  *(.init8)
  *(.init9)
- .init9         0x000000a0        0x4 c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+ .init9         0x000000b8        0x4 c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
  *(.init9)
  *(.text)
- .text          0x000000a4        0x2 c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
-                0x000000a4                __vector_12
-                0x000000a4                __bad_interrupt
-                0x000000a4                __vector_3
-                0x000000a4                __vector_11
-                0x000000a4                __vector_13
-                0x000000a4                __vector_17
-                0x000000a4                __vector_7
-                0x000000a4                __vector_5
-                0x000000a4                __vector_4
-                0x000000a4                __vector_9
-                0x000000a4                __vector_2
-                0x000000a4                __vector_15
-                0x000000a4                __vector_8
-                0x000000a4                __vector_14
-                0x000000a4                __vector_10
-                0x000000a4                __vector_16
-                0x000000a4                __vector_18
- .text          0x000000a6      0x136 .objs\src\cpu_io.o
-                0x000000a6                cpuIoInit
-                0x000000ec                cpuIoReset
-                0x00000140                cpuIoPush
-                0x000000b0                cpuIoPoll
-                0x00000102                cpuIoPop
- .text          0x000001dc       0x82 .objs\src\dbg.o
-                0x000001dc                initLeds
-                0x000001ee                setDbgLed
-                0x0000020a                setLed
-                0x00000242                toggleDbgLed
-                0x00000226                setPower
- .text          0x0000025e       0xe6 .objs\src\funcs.o
-                0x0000025e                invoke
- .text          0x00000344       0x6e .objs\src\main.o
-                0x00000344                usbFunctionSetup
-                0x0000037c                main
-                0x00000370                usbFunctionRead
-                0x0000036a                usbFunctionWrite
- .text          0x000003b2      0x2dc .objs\src\pwm_ctrl.o
-                0x00000406                setPwm0
-                0x000005a4                __vector_6
-                0x000003b2                initPwm
-                0x0000041a                updatePwm
-                0x000003de                setPwmEn
-                0x00000410                setPwm1
- .text          0x0000068e      0x26e .objs\usbdrv\usbdrv.o
-                0x0000069c                usbPoll
-                0x0000068e                usbInit
- .text          0x000008fc      0x28c .objs\usbdrv\usbdrvasm.o
-                0x0000092e                __vector_1
-                0x000008fc                usbCrc16
-                0x00000926                usbCrc16Append
- .text          0x00000b88        0x0 c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_exit.o)
- .text          0x00000b88        0x0 c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_copy_data.o)
- .text          0x00000b88        0x0 c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_clear_bss.o)
-                0x00000b88                . = ALIGN (0x2)
+ .text          0x000000bc        0x2 c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+                0x000000bc                __vector_12
+                0x000000bc                __bad_interrupt
+                0x000000bc                __vector_3
+                0x000000bc                __vector_11
+                0x000000bc                __vector_13
+                0x000000bc                __vector_17
+                0x000000bc                __vector_7
+                0x000000bc                __vector_5
+                0x000000bc                __vector_4
+                0x000000bc                __vector_9
+                0x000000bc                __vector_2
+                0x000000bc                __vector_15
+                0x000000bc                __vector_8
+                0x000000bc                __vector_14
+                0x000000bc                __vector_10
+                0x000000bc                __vector_16
+                0x000000bc                __vector_18
+ .text          0x000000be      0x136 .objs\src\cpu_io.o
+                0x000000be                cpuIoInit
+                0x00000104                cpuIoReset
+                0x00000158                cpuIoPush
+                0x000000c8                cpuIoPoll
+                0x0000011a                cpuIoPop
+ .text          0x000001f4       0x82 .objs\src\dbg.o
+                0x000001f4                initLeds
+                0x00000206                setDbgLed
+                0x00000222                setLed
+                0x0000025a                toggleDbgLed
+                0x0000023e                setPower
+ .text          0x00000276       0xda .objs\src\funcs.o
+                0x00000276                invoke
+ .text          0x00000350       0x7c .objs\src\main.o
+                0x00000350                usbFunctionSetup
+                0x00000388                main
+                0x0000037c                usbFunctionRead
+                0x00000376                usbFunctionWrite
+ .text          0x000003cc      0x2c4 .objs\src\pwm_ctrl.o
+                0x000004f2                setPwm0
+                0x000003cc                __vector_6
+                0x0000049e                initPwm
+                0x00000506                updatePwm
+                0x000004ca                setPwmEn
+                0x000004fc                setPwm1
+ .text          0x00000690       0x36 .objs\src\pyro_sen.o
+                0x00000696                pyroSen
+                0x00000690                initPyroSen
+                0x000006a0                processPyroSen
+ .text          0x000006c6      0x26e .objs\usbdrv\usbdrv.o
+                0x000006d4                usbPoll
+                0x000006c6                usbInit
+ .text          0x00000934      0x28c .objs\usbdrv\usbdrvasm.o
+                0x00000966                __vector_1
+                0x00000934                usbCrc16
+                0x0000095e                usbCrc16Append
+ .text          0x00000bc0        0x0 c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_exit.o)
+ .text          0x00000bc0        0x0 c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_copy_data.o)
+ .text          0x00000bc0        0x0 c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_clear_bss.o)
+                0x00000bc0                . = ALIGN (0x2)
  *(.text.*)
- .text.libgcc   0x00000b88        0x0 c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_exit.o)
- .text.libgcc   0x00000b88        0x0 c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_copy_data.o)
- .text.libgcc   0x00000b88        0x0 c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_clear_bss.o)
-                0x00000b88                . = ALIGN (0x2)
+ .text.libgcc   0x00000bc0        0x0 c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_exit.o)
+ .text.libgcc   0x00000bc0        0x0 c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_copy_data.o)
+ .text.libgcc   0x00000bc0        0x0 c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_clear_bss.o)
+                0x00000bc0                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00000b88        0x0 c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_exit.o)
-                0x00000b88                exit
-                0x00000b88                _exit
+ .fini9         0x00000bc0        0x0 c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_exit.o)
+                0x00000bc0                exit
+                0x00000bc0                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -284,11 +291,11 @@ LOAD c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00000b88        0x4 c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_exit.o)
+ .fini0         0x00000bc0        0x4 c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_exit.o)
  *(.fini0)
-                0x00000b8c                _etext = .
+                0x00000bc4                _etext = .
 
-.data           0x00800060       0x10 load address 0x00000b8c
+.data           0x00800060       0x10 load address 0x00000bc4
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800060        0x0 c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
@@ -297,6 +304,7 @@ LOAD c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a
  .data          0x00800060        0xe .objs\src\funcs.o
  .data          0x0080006e        0x0 .objs\src\main.o
  .data          0x0080006e        0x0 .objs\src\pwm_ctrl.o
+ .data          0x0080006e        0x0 .objs\src\pyro_sen.o
  .data          0x0080006e        0x2 .objs\usbdrv\usbdrv.o
                 0x0080006e                usbTxLen
  .data          0x00800070        0x0 .objs\usbdrv\usbdrvasm.o
@@ -311,7 +319,7 @@ LOAD c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a
                 0x00800070                _edata = .
                 0x00800070                PROVIDE (__data_end, .)
 
-.bss            0x00800070      0x167
+.bss            0x00800070      0x168
                 0x00800070                PROVIDE (__bss_start, .)
  *(.bss)
  .bss           0x00800070        0x0 c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
@@ -324,39 +332,40 @@ LOAD c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a
  .bss           0x00800075        0x0 .objs\src\funcs.o
  .bss           0x00800075        0x8 .objs\src\main.o
  .bss           0x0080007d        0xf .objs\src\pwm_ctrl.o
- .bss           0x0080008c        0x1 .objs\usbdrv\usbdrv.o
- .bss           0x0080008d        0x0 .objs\usbdrv\usbdrvasm.o
- .bss           0x0080008d        0x0 c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_exit.o)
- .bss           0x0080008d        0x0 c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_copy_data.o)
- .bss           0x0080008d        0x0 c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_clear_bss.o)
+ .bss           0x0080008c        0x1 .objs\src\pyro_sen.o
+ .bss           0x0080008d        0x1 .objs\usbdrv\usbdrv.o
+ .bss           0x0080008e        0x0 .objs\usbdrv\usbdrvasm.o
+ .bss           0x0080008e        0x0 c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_exit.o)
+ .bss           0x0080008e        0x0 c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_copy_data.o)
+ .bss           0x0080008e        0x0 c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_clear_bss.o)
  *(.bss*)
  *(COMMON)
- COMMON         0x0080008d       0x20 .objs\src\cpu_io.o
-                0x0080008d                g_ioBuffer
- COMMON         0x008000ad      0x100 .objs\src\funcs.o
-                0x008000ad                g_ramParams
-                0x0080012d                g_eepromParams
- COMMON         0x008001ad       0x2a .objs\usbdrv\usbdrv.o
-                0x008001ad                usbTxBuf
-                0x008001b8                usbDeviceAddr
-                0x008001b9                usbRxToken
-                0x008001ba                usbInputBufOffset
-                0x008001bb                usbMsgPtr
-                0x008001bd                usbRxLen
-                0x008001be                usbNewDeviceAddr
-                0x008001bf                usbCurrentTok
-                0x008001c0                usbConfiguration
-                0x008001c1                usbRxBuf
-                0x008001d7                PROVIDE (__bss_end, .)
-                0x00000b8c                __data_load_start = LOADADDR (.data)
-                0x00000b9c                __data_load_end = (__data_load_start + SIZEOF (.data))
+ COMMON         0x0080008e       0x20 .objs\src\cpu_io.o
+                0x0080008e                g_ioBuffer
+ COMMON         0x008000ae      0x100 .objs\src\funcs.o
+                0x008000ae                g_ramParams
+                0x0080012e                g_eepromParams
+ COMMON         0x008001ae       0x2a .objs\usbdrv\usbdrv.o
+                0x008001ae                usbTxBuf
+                0x008001b9                usbDeviceAddr
+                0x008001ba                usbRxToken
+                0x008001bb                usbInputBufOffset
+                0x008001bc                usbMsgPtr
+                0x008001be                usbRxLen
+                0x008001bf                usbNewDeviceAddr
+                0x008001c0                usbCurrentTok
+                0x008001c1                usbConfiguration
+                0x008001c2                usbRxBuf
+                0x008001d8                PROVIDE (__bss_end, .)
+                0x00000bc4                __data_load_start = LOADADDR (.data)
+                0x00000bd4                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x008001d7        0x0
-                0x008001d7                PROVIDE (__noinit_start, .)
+.noinit         0x008001d8        0x0
+                0x008001d8                PROVIDE (__noinit_start, .)
  *(.noinit*)
-                0x008001d7                PROVIDE (__noinit_end, .)
-                0x008001d7                _end = .
-                0x008001d7                PROVIDE (__heap_start, .)
+                0x008001d8                PROVIDE (__noinit_end, .)
+                0x008001d8                _end = .
+                0x008001d8                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
  *(.eeprom*)
@@ -448,6 +457,7 @@ __data_load_start                                 c:/programs/winavr/20100110/bi
 __data_start                                      c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_copy_data.o)
 __do_clear_bss                                    c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_clear_bss.o)
                                                   .objs\usbdrv\usbdrv.o
+                                                  .objs\src\pyro_sen.o
                                                   .objs\src\pwm_ctrl.o
                                                   .objs\src\main.o
                                                   .objs\src\funcs.o
@@ -503,11 +513,18 @@ initLeds                                          .objs\src\dbg.o
                                                   .objs\src\main.o
 initPwm                                           .objs\src\pwm_ctrl.o
                                                   .objs\src\main.o
+initPyroSen                                       .objs\src\pyro_sen.o
+                                                  .objs\src\main.o
 invoke                                            .objs\src\funcs.o
                                                   .objs\src\cpu_io.o
 main                                              .objs\src\main.o
                                                   c:/programs/winavr/20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+processPyroSen                                    .objs\src\pyro_sen.o
+                                                  .objs\src\main.o
+pyroSen                                           .objs\src\pyro_sen.o
+                                                  .objs\src\funcs.o
 setDbgLed                                         .objs\src\dbg.o
+                                                  .objs\src\pyro_sen.o
                                                   .objs\src\funcs.o
 setLed                                            .objs\src\dbg.o
                                                   .objs\src\funcs.o
@@ -520,7 +537,6 @@ setPwm1                                           .objs\src\pwm_ctrl.o
 setPwmEn                                          .objs\src\pwm_ctrl.o
                                                   .objs\src\funcs.o
 toggleDbgLed                                      .objs\src\dbg.o
-                                                  .objs\src\pwm_ctrl.o
 updatePwm                                         .objs\src\pwm_ctrl.o
                                                   .objs\src\funcs.o
 usbConfiguration                                  .objs\usbdrv\usbdrv.o
