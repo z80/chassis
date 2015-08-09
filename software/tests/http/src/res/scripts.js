@@ -66,7 +66,7 @@
         slide: function( event, ui ) {
           camY = ui.value;
           $( "#dirY" ).val( ui.value );
-          //cameraPosSend();
+          cameraPosSend();
           }
         });
         $( "#dirY" ).val( $( "#slider-vertical" ).slider( "value" ) );
@@ -81,7 +81,7 @@
           slide: function( event, ui ) {
             camX = ui.value;
             $( "#dirX" ).val( ui.value );
-            //cameraPosSend();
+            cameraPosSend();
             }
           });
           $( "#dirX" ).val( $( "#slider-horizontal" ).slider( "value" ) );

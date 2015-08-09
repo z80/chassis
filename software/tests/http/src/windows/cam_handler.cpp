@@ -57,6 +57,15 @@ bool CamHandler::PD::setDevice( int index )
     return res;
 }
 
+class Sleep: public QThread
+{
+public:
+    static void msleep( int ms )
+    {
+        QThread::msleep( ms );
+    }
+};
+
 const QImage & CamHandler::PD::image()
 {
     QMutexLocker lock( &mutex );
@@ -114,16 +123,17 @@ bool CamHandler::service( HttpRequest& request, HttpResponse& response )
     if ( request.getPath() != "/jpg-image" )
         return false;
     
-    QPixmap pixmap;
-    pixmap.convertFromImage( pd->image() ); //.scaled( 1.0, 1.0 );
+    QImage image = pd->image();
 
     QBuffer buffer( &pd->data );
-    QSize sz = pixmap.size();
+    QSize sz = image.size();
     buffer.open(QIODevice::WriteOnly);
-    bool res = pixmap.save( &buffer, "JPG", 70 );
+    bool res = image.save( &buffer, "JPG", 70 );
 
     response.setHeader("Content-Type", "image/JPG");
     response.write( pd->data, true );
+
+    Sleep::msleep( 100 );
 
     return true;
 }
