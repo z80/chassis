@@ -22,7 +22,9 @@ public:
     bool setPower( bool en );
     bool setServoEn( bool en );
     bool setLed( bool en );
-    bool setServo( int raw1, int raw2 );
+    bool setServoRaw( int raw1, int raw2 );
+    bool setServo( qreal v1, qreal v2 );
+    bool sensor( bool & activated );
 
     // Group 1.
     bool setThrottleType( TThrottleType val );

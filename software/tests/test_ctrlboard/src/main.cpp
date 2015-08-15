@@ -24,11 +24,19 @@ int main( int argc, char * argv[] )
     res = io.setLed( false );
 
     res = io.setServoEn( false );
-    res = io.setServo( 100, 1000 );
+    res = io.setServo( 0.0, 0.0 );
+    res = io.setServoEn( true );
 
     res = io.setLed( true );
 
-    //res = io.setServo( 100, 1000 );
+    res = io.setServo( 100.0, 0.0 );
+    res = io.setServo( 0.0, 100.0 );
+    res = io.setServo( 50.0, 50.0 );
+
+    bool en;
+    res = io.sensor( en );
+    res = io.sensor( en );
+    res = io.sensor( en );
 
     res = io.setLed( false );
 
@@ -37,8 +45,8 @@ int main( int argc, char * argv[] )
     res = io.setLed( true );
     res = io.setLed( false );
 
-    //res = io.setServoEn( false );
 
+    res = io.setServoEn( false );
 
     res = io.setPower( false );
 

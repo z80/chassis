@@ -4,6 +4,7 @@
 
 #include <QtCore>
 #include <QImage>
+#include <QPixmap>
 
 class CamHandler::PD
 {
@@ -55,6 +56,15 @@ bool CamHandler::PD::setDevice( int index )
     bool res = updateDevice();
     return res;
 }
+
+class Sleep: public QThread
+{
+public:
+    static void msleep( int ms )
+    {
+        QThread::msleep( ms );
+    }
+};
 
 const QImage & CamHandler::PD::image()
 {
@@ -122,6 +132,8 @@ bool CamHandler::service( HttpRequest& request, HttpResponse& response )
 
     response.setHeader("Content-Type", "image/JPG");
     response.write( pd->data, true );
+
+    Sleep::msleep( 100 );
 
     return true;
 }

@@ -66,7 +66,7 @@
         slide: function( event, ui ) {
           camY = ui.value;
           $( "#dirY" ).val( ui.value );
-          //cameraPosSend();
+          cameraPosSend();
           }
         });
         $( "#dirY" ).val( $( "#slider-vertical" ).slider( "value" ) );
@@ -81,7 +81,7 @@
           slide: function( event, ui ) {
             camX = ui.value;
             $( "#dirX" ).val( ui.value );
-            //cameraPosSend();
+            cameraPosSend();
             }
           });
           $( "#dirX" ).val( $( "#slider-horizontal" ).slider( "value" ) );
@@ -114,7 +114,11 @@
     function lightEn()
     {
       var data = {}
-      data.light = $( '#light' ).prop( "checked" );
+      var en = $( '#light' ).prop( "checked" );
+      if ( en )
+        data.light = 1;
+      else
+        data.light = 0;
 
       var posting = $.post( "chassis", data );
       var stri;

@@ -59,6 +59,7 @@
 #define FUNC_SET_PWR          9
 #define FUNC_SET_PWM_EN       10
 #define FUNC_SET_PWM          11
+#define FUNC_GET_PYRO         12
 
 #endif
 
