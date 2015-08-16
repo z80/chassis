@@ -13,6 +13,9 @@ public:
     ~ChassisHandler();
 
     bool service( HttpRequest& request, HttpResponse& response );
+
+private slots:
+    void slotTimeout();
 private:
     class PD;
     PD * pd;
