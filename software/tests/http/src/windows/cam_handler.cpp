@@ -19,10 +19,12 @@ public:
     QImage           imageRaw;
     QByteArray       data;
     QMutex mutex;
+    QTime time;
 
     PD()
     {
         dev = -1;
+        time.start();
     }
 
     ~PD()
@@ -70,22 +72,26 @@ const QImage & CamHandler::PD::image()
 {
     QMutexLocker lock( &mutex );
 
-	int size = vi.getSize( dev );
-    if ( size > 0 )
+    if ( time.elapsed() > 50 )
     {
-	    int w = vi.getWidth( dev );
-	    int h = vi.getHeight( dev );
-    	
-	    if ( data.size() != size )
-            data.resize( size );
-    	
-	    //to get the data from the device first check if the data is new
-	    if ( vi.isFrameNew( dev ) )
+        time.restart();
+	    int size = vi.getSize( dev );
+        if ( size > 0 )
         {
-		    vi.getPixels( dev, reinterpret_cast<unsigned char *>( data.data() ), true, true );	//fills pixels as a BGR (for openCV) unsigned char array - no flipping
+	        int w = vi.getWidth( dev );
+	        int h = vi.getHeight( dev );
+        	
+	        if ( data.size() != size )
+                data.resize( size );
+        	
+	        //to get the data from the device first check if the data is new
+	        if ( vi.isFrameNew( dev ) )
+            {
+		        vi.getPixels( dev, reinterpret_cast<unsigned char *>( data.data() ), true, true );	//fills pixels as a BGR (for openCV) unsigned char array - no flipping
 
-            QImage img( reinterpret_cast<unsigned char *>( data.data() ), w, h, QImage::Format_RGB888 );
-            imageRaw = img;
+                QImage img( reinterpret_cast<unsigned char *>( data.data() ), w, h, QImage::Format_RGB888 );
+                imageRaw = img.scaled( w+1, h+1 );
+            }
         }
     }
     return imageRaw;
