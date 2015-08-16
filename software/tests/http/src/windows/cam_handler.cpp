@@ -72,7 +72,8 @@ const QImage & CamHandler::PD::image()
 {
     QMutexLocker lock( &mutex );
 
-    if ( time.elapsed() > 50 )
+    int elapsed = time.elapsed();
+    if ( elapsed > 50 )
     {
         time.restart();
 	    int size = vi.getSize( dev );
