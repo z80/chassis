@@ -39,6 +39,7 @@ bool ChassisHandler::PD::setPower( bool en )
         {
             io.setPower( true );
             io.setServoEn( true );
+            powerEn = true;
         }
     }
     else
@@ -48,7 +49,9 @@ bool ChassisHandler::PD::setPower( bool en )
             io.setServoEn( false );
             io.setLed( false );
             io.setPower( false );
-            light = false;
+            light    = false;
+            newLight = false;
+            powerEn  = false;
         }
     }
     return true;
@@ -139,7 +142,7 @@ void ChassisHandler::slotTimeout()
 
 
     mutex.lock();
-        bool newLight = pd->newLight;
+        bool newLight = (pd->newLight > 0);
         bool updateLight = ( newLight != pd->light );
     mutex.unlock();
 
