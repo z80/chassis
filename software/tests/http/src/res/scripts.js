@@ -38,6 +38,7 @@
     {
       camX = 0;
       camY = 0;
+      quality = 0;
 
       console.log( "document ready" );
       var name = imgNewName();
@@ -86,6 +87,20 @@
           });
           $( "#dirX" ).val( $( "#slider-horizontal" ).slider( "value" ) );
 
+        $( "#slider-quality" ).slider({
+          orientation: "horizontal",
+          range: "min",
+          min: 1,
+          max: 100,
+          value: 70,
+          slide: function( event, ui ) {
+            quality = ui.value;
+            $( "#quality" ).val( ui.value );
+            qualitySend();
+            }
+          });
+          $( "#quality" ).val( $( "#slider-quality" ).slider( "value" ) );
+          
         $( '#autorefresh' ).prop( "checked", true );
         $( '#autorefresh' ).click( onInterval );
         $( '#force-refresh-image' ).click( forceRefreshImage );
@@ -109,6 +124,15 @@
 
       var posting = $.post( "chassis", data );
       $( '#result' ).text( 'Camera position: ' + camX.toString() + ", " + camY.toString() );
+    }
+
+    function qualitySend()
+    {
+      var data = {}
+      data.quality = quality;
+
+      var posting = $.post( "jpg-image", data );
+      $( '#result' ).text( 'Image quality: ' + quality.toString() );
     }
 
     function lightEn()
